@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace StoreFront
+namespace RRModels
 {
-    public class StoreFront
+    public class Restaurant
     {
         //This is a field
         private string _city;
-    
 
         //This is a property that uses the field called _city
         public string City
@@ -29,6 +28,4 @@ namespace StoreFront
         public string Name { get; set; }
 
     }
-
-
 }

@@ -1,4 +1,7 @@
 ﻿using System;
+using StoreBL;
+using StoreDL;
+
 
 namespace StoreUI
 {
@@ -42,7 +45,13 @@ namespace StoreUI
                         //It will have different implementations/functions when the while loop goes back and
                         //repeat itself
                         page = new StoreStock();
-                        break; 
+                        break;
+                    case MenuType.ShowStore:
+                        page = new ShowStore(new StoreFrontBL(new Repository()));
+                        break;
+                    case MenuType.AddStore:
+                        page = new AddStore(new StoreFrontBL(new Repository()));
+                        break;
                     case MenuType.Exit:
                         Console.WriteLine("You are exiting the application!");
                         Console.WriteLine("Press Enter to continue");

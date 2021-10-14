@@ -52,6 +52,9 @@ namespace StoreUI
                     case MenuType.AddStore:
                         page = new AddStore(new StoreFrontBL(new Repository()));
                         break;
+                    case MenuType.AddCustomer:
+                        page = new AddCustomer(new StoreFrontBL(new Repository()));
+                        break;
                     case MenuType.Exit:
                         Console.WriteLine("You are exiting the application!");
                         Console.WriteLine("Press Enter to continue");

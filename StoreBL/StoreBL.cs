@@ -40,6 +40,22 @@ namespace StoreBL
             }
 
             return listOfStore;
+
+        public Customer AddCustomer(Customer p_customer)
+        {
+            return _repo.AddCustomer(p_customer);
+        }
+
+        public List<Store> GetAllCustomer()
+        {
+            //Maybe my business operation needs to capitalize every name of a restaurant
+            List<Customer> listOfCustomer = _repo.GetAllCustomer();
+            for (int i = 0; i < listOfCustomer.Count; i++)
+            {
+                listOfCustomer[i].Name = listOfCustomer[i].Name.ToLower(); 
+            }
+
+            return listOfCustomer;
         }
     }
 }

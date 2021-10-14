@@ -11,7 +11,7 @@ namespace StoreDL
     public class Repository : IRepository
     {
         //Filepath need to reference from the startup project (StoreUI) and hence why we need to go back a folder and cd into StoreDL
-        private const string _filepath = "./../StoreDL/Database/FrontStore.json";
+        private const string _filepath = "./../StoreDL/Database/";
         private string _jsonString;
 
         public Store AddStore(Store p_store)
@@ -19,15 +19,15 @@ namespace StoreDL
             //The reason why we need to grab all the information back is because File.WriteAllText method will overwrite anything inside the JSON file
             List<Store> listOfStores = GetAllStore();
 
-            //We added the new restaurant from the parameter 
+            //We added the new store from the parameter 
             listOfStores.Add(p_store);
 
             _jsonString = JsonSerializer.Serialize(listOfStores, new JsonSerializerOptions{WriteIndented=true});
 
-            //This is what adds the restaurant.json
-            File.WriteAllText(_filepath,_jsonString);
+            //This is what adds the store.json
+            File.WriteAllText(_filepath+"store.json",_jsonString);
 
-            //Will return a restaurant object from the parameter
+            //Will return a store object from the parameter
             return p_store;
         }
 
@@ -35,7 +35,7 @@ namespace StoreDL
         public List<Store> GetAllStore()
         {
             //File class will just read everything in the Resturant.json and put it in a string
-            _jsonString = File.ReadAllText(_filepath);
+            _jsonString = File.ReadAllText(_filepath+"store.json");
 
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
@@ -48,13 +48,13 @@ namespace StoreDL
             //The reason why we need to grab all the information back is because File.WriteAllText method will overwrite anything inside the JSON file
             List<Customer> listOfCustomer = GetAllCustomer();
 
-            //We added the new restaurant from the parameter 
+            //We added the new customer from the parameter 
             listOfCustomer.Add(p_customer);
 
             _jsonString = JsonSerializer.Serialize(listOfCustomer, new JsonSerializerOptions{WriteIndented=true});
 
-            //This is what adds the restaurant.json
-            File.WriteAllText(_filepath,_jsonString);
+            //This is what add the customer.json
+            File.WriteAllText(_filepath+"customer.json",_jsonString);
 
             //Will return a restaurant object from the parameter
             return p_customer;
@@ -64,7 +64,7 @@ namespace StoreDL
         public List<Customer> GetAllCustomer()
         {
             //File class will just read everything in the Resturant.json and put it in a string
-            _jsonString = File.ReadAllText(_filepath);
+            _jsonString = File.ReadAllText(_filepath+"customer.json");
 
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it

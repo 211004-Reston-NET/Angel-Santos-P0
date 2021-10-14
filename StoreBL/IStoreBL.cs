@@ -31,7 +31,7 @@ namespace StoreBL
         /// </summary>
         ///<param name="p_customer">This is the customer we are adding</param>
         /// <returns>It returns the added customer</returns>
-        Store AddCustomer(Customer p_customer);
+        Customer AddCustomer(Customer p_customer);
         
     }
 }

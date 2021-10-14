@@ -8,6 +8,7 @@ namespace StoreUI
         ShowStore,
         AddStore,
         AddCustomer,
+        ShowCustomer,
         Exit
     }
 

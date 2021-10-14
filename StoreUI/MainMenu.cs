@@ -18,6 +18,8 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                case "2":
+                    return MenuType.StoreStock;
                 case "1":
                     return MenuType.StoreStock;
                 case "0":

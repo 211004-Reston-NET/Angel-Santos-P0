@@ -20,7 +20,7 @@ namespace StoreUI
             Console.WriteLine("Name - " + _store.Name);
             Console.WriteLine("State - "+ _store.State);
             Console.WriteLine("City - "+ _store.City);
-            Console.WriteLine("[4] - Add Store");
+            //Console.WriteLine("[4] - Add Store");
             Console.WriteLine("[3] - Input value for Name");
             Console.WriteLine("[2] - Input value for State");
             Console.WriteLine("[1] - Input value for City");
@@ -32,7 +32,7 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "4":
+                case "":
                     //Add implementation to talk to the repository method to add a restaurant
                     _storeBL.AddStore(_store);
                     return MenuType.StoreStock;

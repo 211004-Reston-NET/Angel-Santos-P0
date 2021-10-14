@@ -23,13 +23,13 @@ namespace StoreModels
                 _city = value;
             }
         }
-
+        public string Username {get; set; }
         public string State { get; set; }
         public string Name { get; set; }
 
         public override string ToString()
         {
-            return $"Name: {Name}\nState: {State}";
+            return $"Username: {Username}\nName: {Name}\nState: {State}";
         }
 
     }

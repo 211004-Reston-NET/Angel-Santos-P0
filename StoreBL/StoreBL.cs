@@ -10,7 +10,7 @@ namespace StoreBL
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
-    public class StoreFrontBL :IStoreBL
+    public class StoreFrontBL : IStoreBL
     {
         private IRepository _repo;
         /// <summary>
@@ -30,6 +30,11 @@ namespace StoreBL
             return _repo.AddStore(p_store);
         }
 
+        public Customer AddCustomer(Customer p_customer)
+            {
+            return _repo.AddCustomer(p_customer);
+            }
+
         public List<Store> GetAllStore()
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
@@ -40,15 +45,10 @@ namespace StoreBL
             }
 
             return listOfStore;
-
-        public Customer AddCustomer(Customer p_customer)
-        {
-            return _repo.AddCustomer(p_customer);
         }
-
-        public List<Store> GetAllCustomer()
+        public List<Customer> GetAllCustomer()
         {
-            //Maybe my business operation needs to capitalize every name of a restaurant
+            
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             for (int i = 0; i < listOfCustomer.Count; i++)
             {
@@ -56,7 +56,8 @@ namespace StoreBL
             }
 
             return listOfCustomer;
-        }
+        
+        }        
     }
 }
  

@@ -27,7 +27,7 @@ namespace StoreUI
             Console.WriteLine("[0] - Go Back");
         }
 
-        public MenuType YourChoice()
+        public MenuType UserChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)

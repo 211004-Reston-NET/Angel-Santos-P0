@@ -5,31 +5,23 @@ namespace StoreUI
     public class StoreStock : IMenu
     {
         public void Menu()
+///
+/// Reads into Main Menu. Change this Interface to Products after Main Menu has Admin. 
         {
-            Console.WriteLine("Welcome to the GPU Shop!");
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[5] - List Customers");
-            Console.WriteLine("[4] - Add Customers");
-            Console.WriteLine("[3] - Add a Store");
+            Console.WriteLine("GPU City, where GPUs grow on trees! :D");
+            Console.WriteLine("[1] Browse our GPU cornucopia!");
             Console.WriteLine("[2] - Checkout");
-            Console.WriteLine("[1] - Buy a Product");
             Console.WriteLine("[0] - Go to MainMenu");
         }
 
-        public MenuType YourChoice()
+        public MenuType UserChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "5":
-                    return MenuType.ShowCustomer;
-                case "4":
-                    return MenuType.AddCustomer;
-                case "3":
-                    return MenuType.AddStore;
-                case "2":
-                    return MenuType.StoreStock;
                 case "1":
+                    return MenuType.ShowProduct;
+                case "2":
                     return MenuType.StoreStock;
                 case "0":
                     return MenuType.MainMenu;

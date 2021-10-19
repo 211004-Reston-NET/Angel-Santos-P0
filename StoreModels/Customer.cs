@@ -25,11 +25,13 @@ namespace StoreModels
         }
         public string Username {get; set; }
         public string State { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
 
         public override string ToString()
         {
-            return $"Username: {Username}\nName: {Name}\nState: {State}";
+            return $"Username: {Username}\nFirstName: {FirstName}\nLastName:{LastName}\nState: {State}";
         }
 
     }

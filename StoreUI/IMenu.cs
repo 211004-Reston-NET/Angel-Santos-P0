@@ -4,10 +4,14 @@ namespace StoreUI
     public enum MenuType
     {
         MainMenu,
+        StoreAdmin,
         StoreStock,
         ShowStore,
         AddStore,
-        AddCustomer,
+        AddProduct,
+        ShowProduct,
+        SignCustomer,
+        CustomerSignUp,
         ShowCustomer,
         Exit
     }
@@ -27,6 +31,6 @@ namespace StoreUI
         /// on the end-user's choice
         /// </summary>
         /// <returns>This method should return a menu that the user will go to next</returns>
-        MenuType YourChoice();
+        MenuType UserChoice();
     }
 }

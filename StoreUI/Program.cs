@@ -28,7 +28,7 @@ namespace StoreUI
                 //IMenu, this lets us dynamically change the page by having the page variable
                 //Point to a different object each time
                 page.Menu();
-                MenuType currentPage = page.YourChoice();
+                MenuType currentPage = page.UserChoice();
 
                 //switch case will change the page variable to point to another object to change
                 //its MainMenu 
@@ -46,17 +46,23 @@ namespace StoreUI
                         //repeat itself
                         page = new StoreStock();
                         break;
+                    case MenuType.StoreAdmin:
+                        page = new StoreAdmin(new StoreFrontBL(new Repository()));
+                        break;
                     case MenuType.ShowStore:
                         page = new ShowStore(new StoreFrontBL(new Repository()));
                         break;
                     case MenuType.AddStore:
                         page = new AddStore(new StoreFrontBL(new Repository()));
                         break;
-                    case MenuType.AddCustomer:
-                        page = new AddCustomer(new StoreFrontBL(new Repository()));
+                    case MenuType.SignCustomer:
+                        page = new SignCustomer(new StoreFrontBL(new Repository()));
                         break;
                     case MenuType.ShowCustomer:
                         page = new ShowCustomer(new StoreFrontBL(new Repository()));
+                        break;
+                    case MenuType.ShowProduct:
+                        page = new ShowProduct(new StoreFrontBL(new Repository()));
                         break;
                     case MenuType.Exit:
                         Console.WriteLine("You are exiting the application!");

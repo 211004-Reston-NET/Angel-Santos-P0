@@ -1,18 +1,29 @@
 using System;
+using StoreBL;
 
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
-    public class MainMenu : IMenu
+    /// <summary>
+    /// Maybe a Login for Admin can be made?
+    /// </summary>
+    public class StoreAdmin : IMenu
     {
+
+        private IStoreBL _storeBL;
+        public StoreAdmin(IStoreBL p_storeBL)
+        {
+            
+        }
+     
         public void Menu()
         {
-            Console.WriteLine("Welcome to GPUCity! Please, select an option from the mainmenu.");
-            Console.WriteLine("[0] - Admin - Store Manager");
-            Console.WriteLine("[1] - Create an Account ");
+            Console.WriteLine("GPUCity StoreAdmin, select an option from the mainmenu.");
+            Console.WriteLine("[1] - Add Customer Credentials. ");
             Console.WriteLine("[2] - Select Store Location.");
-            Console.WriteLine("[3] - Enter our store page.");
-            Console.WriteLine("[4] - Exit");
+            Console.WriteLine("[3] - Check Inventory.");
+            Console.WriteLine("[4] - Ship Product.");
+            Console.WriteLine("[0] - Exit");
         }
 
         public MenuType UserChoice()
@@ -20,14 +31,12 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
-                    return MenuType.StoreAdmin;
                 case "1":
                     return MenuType.SignCustomer;
                 case "2":
                     return MenuType.AddStore;
                 case "3":
-                    return MenuType.StoreStock;
+                    return MenuType.ShowProduct;
                 case "4":
                     return MenuType.Exit;
                 default:

@@ -6,16 +6,16 @@ namespace StoreBL
     public interface IStoreBL
     {
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// This will return a list of stores stored in the database
+        /// It will also capitalize every name of the store
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns>It will return a list of stores</returns>
         List<Store> GetAllStore();
 
         /// <summary>
         /// Adds a restaurant to the database
         /// </summary>
-        /// <param name="p_store">This is the restaurant we are adding</param>
+        /// <param name="p_store">This is the store we are adding</param>
         /// <returns>It returns the added restaurant</returns>
         Store AddStore(Store p_store);
 
@@ -32,6 +32,15 @@ namespace StoreBL
         ///<param name="p_customer">This is the customer we are adding</param>
         /// <returns>It returns the added customer</returns>
         Customer AddCustomer(Customer p_customer);
+        
+        List<Product> GetAllProduct();
+
+        /// <summary>
+        /// Adds a product to the database.
+        /// </summary>
+        ///<param name="p_product">This is the product we are adding</param>
+        /// <returns>It returns the added customer</returns>
+        Product AddProduct(Product p_product);
         
     }
 }

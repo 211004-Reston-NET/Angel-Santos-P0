@@ -30,6 +30,11 @@ namespace StoreBL
             return _repo.AddStore(p_store);
         }
 
+        public Product AddProduct(Product p_product)
+        {
+            return _repo.AddProduct(p_product);
+        }
+
         public Customer AddCustomer(Customer p_customer)
             {
             return _repo.AddCustomer(p_customer);
@@ -37,7 +42,12 @@ namespace StoreBL
 
         public List<Store> GetAllStore()
         {
-            //Maybe my business operation needs to capitalize every name of a restaurant
+            //Maybe my business operation needs to capitalize every name
+            /// <summary>
+            /// Displays a List of Store Locations.
+            /// 
+            /// </summary>
+            /// <returns></returns>
             List<Store> listOfStore = _repo.GetAllStore();
             for (int i = 0; i < listOfStore.Count; i++)
             {
@@ -52,10 +62,22 @@ namespace StoreBL
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             for (int i = 0; i < listOfCustomer.Count; i++)
             {
-                listOfCustomer[i].Name = listOfCustomer[i].Name.ToLower(); 
+                listOfCustomer[i].FirstName = listOfCustomer[i].FirstName.ToLower(); 
             }
 
             return listOfCustomer;
+        
+        }        
+        public List<Product> GetAllProduct()
+        {
+            
+            List<Product> listOfProduct = _repo.GetAllProduct();
+            for (int i = 0; i < listOfProduct.Count; i++)
+            {
+                listOfProduct[i].Name = listOfProduct[i].Name.ToLower(); 
+            }
+
+            return listOfProduct;
         
         }        
     }

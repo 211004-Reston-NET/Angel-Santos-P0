@@ -58,7 +58,7 @@ namespace StoreDL
             //This is what add the customer.json
             File.WriteAllText(_filepath+"customer.json",_jsonString);
 
-            //Will return a restaurant object from the parameter
+            //Will return a store object from the parameter
             return p_customer;
         }
 
@@ -102,6 +102,12 @@ namespace StoreDL
             //The parameter of the Deserialize method needs a string variable that holds the json file
             return JsonSerializer.Deserialize<List<Product>>(_jsonString);
 
+        }
+        public List<Cart> GetAllCart()
+        {
+            _jsonString = File.ReadAllText(_filepath+"product.json");
+
+            return JsonSerializer.Deserialize<List<Cart>>(_jsonString);
         }
     }
 }

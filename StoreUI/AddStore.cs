@@ -33,9 +33,9 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "":
-                    //Add implementation to talk to the repository method to add a restaurant
+                    //Add implementation to talk to the repository method to add a store
                     _storeBL.AddStore(_store);
-                    return MenuType.StoreStock;
+                    return MenuType.StoreMenu;
                 case "3":
                     Console.WriteLine("Type in the value for the Name");
                     _store.Name = Console.ReadLine();
@@ -49,7 +49,7 @@ namespace StoreUI
                     _store.City = Console.ReadLine();
                     return MenuType.AddStore;
                 case "0":
-                    return MenuType.StoreStock;
+                    return MenuType.StoreMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

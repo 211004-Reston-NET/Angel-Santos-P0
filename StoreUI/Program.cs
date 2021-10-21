@@ -39,12 +39,12 @@ namespace StoreUI
                         //page will start pointing to a MainMenu object instead
                         page = new MainMenu();
                         break;
-                    case MenuType.StoreStock:
+                    case MenuType.StoreMenu:
                         //This will point the page reference variable to a new Object
                         //Since Object has different implementation/function of the Menu Method
                         //It will have different implementations/functions when the while loop goes back and
                         //repeat itself
-                        page = new StoreStock();
+                        page = new StoreMenu();
                         break;
                     case MenuType.StoreAdmin:
                         page = new StoreAdmin(new StoreFrontBL(new Repository()));
@@ -61,9 +61,12 @@ namespace StoreUI
                     case MenuType.ShowCustomer:
                         page = new ShowCustomer(new StoreFrontBL(new Repository()));
                         break;
-                    case MenuType.ShowProduct:
-                        page = new ShowProduct(new StoreFrontBL(new Repository()));
+                    case MenuType.QueryProduct:
+                        page = new QueryProduct(new StoreFrontBL(new Repository()));
                         break;
+                    //case MenuType.CartOrder:
+                        //page = new CartOrder(new StoreFrontBL(new Repository()));
+                        //break;
                     case MenuType.Exit:
                         Console.WriteLine("You are exiting the application!");
                         Console.WriteLine("Press Enter to continue");

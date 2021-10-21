@@ -1,16 +1,22 @@
+/*
 using System;
 using System.Collections.Generic;
-using StoreBL;
+using System.Linq;
 using StoreModels;
+using StoreBL;
 
 namespace StoreUI
 {
-    public class QueryProduct : IMenu
+    public class Cart : IMenu
     {
         private IStoreBL _storeBL;
-        public QueryProduct(IStoreBL p_storeBL)
+        public Cart(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
+        }
+        internal Cart()
+        {
+            return;
         }
         public void Menu()
         {
@@ -26,21 +32,7 @@ namespace StoreUI
             }
             Console.WriteLine("[0] - Go Back");
         }
-
-        public MenuType UserChoice()
-        {
-            string userChoice = Console.ReadLine();
-            switch (userChoice)
-            {
-                case "0":
-                    return MenuType.MainMenu;
-                default:
-                    Console.WriteLine("Please input a valid response!");
-                    Console.WriteLine("Press Enter to continue");
-                    Console.ReadLine();
-                    return MenuType.ShowProduct;
-            }
-        }
+        
     }
 }
-
+*/

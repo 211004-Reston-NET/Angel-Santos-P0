@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using StoreDL;
 using StoreModels;
+using System.Linq;
 
 namespace StoreBL
 {
@@ -78,8 +79,24 @@ namespace StoreBL
             }
 
             return listOfProduct;
+        }
+        public List<Product> FindProduct(string p_name)
+        {
+            List<Product> listOfProduct = _repo.GetAllProduct();
+            return listOfProduct.Where(prod => prod.Name .Contains(p_name)).ToList();
+        }
+        /*public List<Product> GetAllOrder()
+        {
+            
+            List<Order> listOfOrder = _repo.GetAllOrder();
+            for (int i = 0; i < listOfOrder.Count; i++)
+            {
+                listOfOrder[i].Name = listOfOrder[i].Name.ToLower(); 
+            }
+
+            return listOfProduct;
         
-        }        
-    }
+        } 
+        */       
 }
- 
+}

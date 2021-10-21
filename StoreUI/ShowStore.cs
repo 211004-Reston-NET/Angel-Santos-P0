@@ -32,7 +32,7 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.StoreStock;
+                    return MenuType.StoreMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

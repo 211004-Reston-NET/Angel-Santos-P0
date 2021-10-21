@@ -27,7 +27,7 @@ namespace StoreUI
                 case "2":
                     return MenuType.AddStore;
                 case "3":
-                    return MenuType.StoreStock;
+                    return MenuType.StoreMenu;
                 case "4":
                     return MenuType.Exit;
                 default:

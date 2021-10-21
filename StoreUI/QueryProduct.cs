@@ -1,26 +1,27 @@
-using System;
+/*using System;
 using System.Collections.Generic;
 using StoreBL;
 using StoreModels;
 
 namespace StoreUI
 {
-    public class ShowCustomer : IMenu
+    public class QueryProduct : IMenu
     {
         private IStoreBL _storeBL;
-        public ShowCustomer(IStoreBL p_storeBL)
+        public QueryProduct(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
         public void Menu()
         {
-            Console.WriteLine("List of Customers");
-            List<Customer> listOfCustomer = _storeBL.GetAllCustomer();
+            Console.WriteLine("List of Products");
+            List<Product> listOfProduct = _storeBL.FindProduct();
+            
 
-            foreach (Customer customer in listOfCustomer)
+            foreach (Product prod in listOfProduct)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(customer);
+                Console.WriteLine(prod);
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
@@ -32,14 +33,15 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.StoreMenu;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowCustomer;
+                    return MenuType.ShowProduct;
             }
         }
     }
 }
 
+*/

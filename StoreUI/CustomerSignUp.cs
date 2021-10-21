@@ -51,7 +51,7 @@ namespace StoreUI
                         return MenuType.MainMenu;
                     }
                     
-                    return MenuType.StoreStock;
+                    return MenuType.StoreMenu;
                 case "5":
                     Console.WriteLine("Type in the value for the Username");
                     _customer.Username = Console.ReadLine();
@@ -73,7 +73,7 @@ namespace StoreUI
                     _customer.City = Console.ReadLine();
                     return MenuType.SignCustomer;
                 case "0":
-                    return MenuType.StoreStock;
+                    return MenuType.StoreMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

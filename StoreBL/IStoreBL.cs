@@ -13,17 +13,17 @@ namespace StoreBL
         List<Store> GetAllStore();
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a store to the database
         /// </summary>
         /// <param name="p_store">This is the store we are adding</param>
-        /// <returns>It returns the added restaurant</returns>
+        /// <returns>It returns the added store</returns>
         Store AddStore(Store p_store);
 
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// This will return a list of stores stored in the database
+        /// It will also capitalize every name of the store
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns>It will return a list of stores</returns>
         List<Customer> GetAllCustomer();
 
         /// <summary>
@@ -41,6 +41,7 @@ namespace StoreBL
         ///<param name="p_product">This is the product we are adding</param>
         /// <returns>It returns the added customer</returns>
         Product AddProduct(Product p_product);
+        List<Product> FindProduct(string p_name);
         
     }
 }

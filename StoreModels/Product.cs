@@ -9,8 +9,8 @@ namespace StoreModels
         
         public string Name {get; set; }
         public string Type { get; set; }
-        public string Price { get; set; }
-        public string Stock { get; set; }
+        public float Price { get; set; }
+        public int Stock { get; set; }
 
         public override string ToString()
         {

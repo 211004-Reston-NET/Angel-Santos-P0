@@ -46,9 +46,9 @@ namespace StoreUI
                         //repeat itself
                         page = new StoreMenu();
                         break;
-                    case MenuType.StoreAdmin:
-                        page = new StoreAdmin(new StoreFrontBL(new Repository()));
-                        break;
+                   // case MenuType.StoreAdmin:
+                     //   page = new StoreAdmin(new StoreFrontBL(new Repository()));
+                       // break;
                     case MenuType.ShowStore:
                         page = new ShowStore(new StoreFrontBL(new Repository()));
                         break;

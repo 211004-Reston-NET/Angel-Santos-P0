@@ -3,3 +3,4 @@ obj
 .vscode
 FirstDB.sql
 p0CreateTable
+appsetting.json

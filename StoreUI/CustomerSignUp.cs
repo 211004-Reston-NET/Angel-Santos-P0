@@ -20,18 +20,12 @@ namespace StoreUI
             Console.WriteLine("First Name - " + _customer.FirstName);
             Console.WriteLine("Last Name - " + _customer.LastName);
             Console.WriteLine("Street Address - "+ _customer.StreetAddress);
-            Console.WriteLine("City - "+ _customer.City);
-            Console.WriteLine("State - "+ _customer.State);
-            Console.WriteLine("Email - " + _customer.Email);
-            Console.WriteLine("Phone Number - " + _customer.PhoneNumber);
+            Console.WriteLine("Street Address - "+ _customer.Email);
             Console.WriteLine("[1] - Input your First Name");
             Console.WriteLine("[2] - Input your Last Name");
             Console.WriteLine("[3] - Input your Street Address");
-            Console.WriteLine("[4] - Input value for City");
-            Console.WriteLine("[3] - Input value for State");
-            Console.WriteLine("[5] - Input Email");
-            Console.WriteLine("[6] - Input Phone Number");
-            Console.WriteLine("[7] - Submit your completed information.");
+            Console.WriteLine("[4] - Input your Email");
+            Console.WriteLine("[5] - Submit your completed information.");
             Console.WriteLine("[0] - Go Back");
         }
 
@@ -40,36 +34,7 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-               
-                case "1":
-                    Console.WriteLine("Type in your First Name.");
-                    _customer.FirstName = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
-                case "2":
-                    Console.WriteLine("Type in your Last Name.");
-                    _customer.LastName = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
-                case "3":
-                    Console.WriteLine("Type in the value for the Street Address.");
-                    _customer.StreetAddress = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
-                case "4":
-                    Console.WriteLine("Type in the value for the City.");
-                    _customer.City = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
                 case "5":
-                    Console.WriteLine("Type in the value for the State.");
-                    _customer.State = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
-                case "6":
-                    Console.WriteLine("Type in the value for the Email.");
-                    _customer.Email = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
-                case "7":
-                    Console.WriteLine("Type in the value for the Phone Number.");
-                    _customer.PhoneNumber = Console.ReadLine();
-                    return MenuType.SignUpCustomer;
-                case "8":
                 //'try' block will 'catch' if exception arises, prevents interruption 
                 // through exception handling
                     try
@@ -81,9 +46,67 @@ namespace StoreUI
                         Console.WriteLine("You must input value to all fields above");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
-                        return MenuType.MainMenu;
+                        return MenuType.CustomerSignUp;
                     }
+
                     return MenuType.StoreMenu;
+                case "1":
+                    Console.WriteLine("Type in your First Name.");
+                    try
+                    {
+                         _customer.FirstName = Console.ReadLine();
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("You must use only letters.");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.CustomerSignUp;
+                    }
+                    return MenuType.CustomerSignUp;
+                case "2":
+                    Console.WriteLine("Type in your Last Name.");
+                    try
+                    {
+                    _customer.LastName = Console.ReadLine();
+                    }
+                    catch (SystemException)
+                    {
+                        Console.WriteLine("You must use only letters.");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.CustomerSignUp;
+                    }
+                    return MenuType.CustomerSignUp;
+                case "3":
+                    Console.WriteLine("Type in the value for the Street Address.");
+                    try
+                    {
+                    _customer.StreetAddress = Console.ReadLine();
+                    }
+                    catch (SystemException)
+                    {
+                        Console.WriteLine("You must enter a valid Address.");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.CustomerSignUp;
+                    }
+                    return MenuType.CustomerSignUp;
+                case "4":
+                    Console.WriteLine("Type in the value for your Email.");
+                    try
+                    {
+                    _customer.Email = Console.ReadLine();
+                    }
+                    catch (SystemException)
+                    {
+                        Console.WriteLine("You must enter a valid Address.");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.CustomerSignUp;
+                    }
+                    return MenuType.CustomerSignUp;
+               
                 case "0":
                     return MenuType.StoreMenu;
                 default:

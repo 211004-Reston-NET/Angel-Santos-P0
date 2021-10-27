@@ -6,7 +6,7 @@ namespace StoreUI
 {
     public class AddStore : IMenu
     {
-        private static Store _store = new Store();
+        private static StoreFront _store = new StoreFront();
         private IStoreBL _storeBL;
          
         public AddStore(IStoreBL p_storeBL)

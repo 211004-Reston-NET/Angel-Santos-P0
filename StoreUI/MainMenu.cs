@@ -7,8 +7,14 @@ namespace StoreUI
     {
         public void Menu()
         {
-            Console.WriteLine("Welcome to GPUCity! Please, select an option from the mainmenu.");
-            Console.WriteLine("[0] - Admin - Store Manager");
+            string title = @"
+        
++-+-+-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+
+|H|a|c|k|T|h|e|P|l|a|n|e|t| |I|n|c|.|
++-+-+-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+                                                                                  
+";
+            Console.WriteLine(title);
+            Console.WriteLine("GPUs, CyberWare, Cybernetic Peripherals, We Have It All!\n Please, select an option from the Main Menu.");
             Console.WriteLine("[1] - Create an Account ");
             Console.WriteLine("[2] - Select Store Location.");
             Console.WriteLine("[3] - Enter our store page.");
@@ -20,10 +26,8 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
-                    return MenuType.StoreAdmin;
                 case "1":
-                    return MenuType.SignUpCustomer;
+                    return MenuType.CustomerSignUp;
                 case "2":
                     return MenuType.AddStore;
                 case "3":

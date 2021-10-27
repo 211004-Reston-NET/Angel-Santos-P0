@@ -4,15 +4,12 @@ namespace StoreUI
     public enum MenuType
     {
         MainMenu,
-        StoreAdmin,
         StoreMenu,
         ShowStore,
         AddStore,
         AddProduct,
         ShowProduct,
         QueryProduct,
-        CartOrder,
-        SignUpCustomer,
         CustomerSignUp,
         ShowCustomer,
         Exit

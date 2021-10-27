@@ -1,5 +1,6 @@
 using System;
 
+
 namespace StoreUI
 {
     public class StoreMenu : IMenu
@@ -8,8 +9,7 @@ namespace StoreUI
 ///
 /// Reads into Main Menu. Change this Interface to Products after Main Menu has Admin. 
         {
-            Console.WriteLine("GPU City, where GPUs grow on trees! :D");
-            Console.WriteLine("[1] Browse our GPU cornucopia!");
+            Console.WriteLine("[1] Browse our cyberware!");
             Console.WriteLine("[2] Place an item to your cart.");
             Console.WriteLine("[3] - Checkout");
             Console.WriteLine("[0] - Go to MainMenu");

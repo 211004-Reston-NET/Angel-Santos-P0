@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using StoreBL;
 using StoreModels;
 
+
 namespace StoreUI
 {
     public class ShowStore : IMenu
@@ -15,9 +16,9 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine("List of Stores");
-            List<Store> listOfStores = _storeBL.GetAllStore();
+            List<StoreFront> listOfStores = _storeBL.GetAllStore();
 
-            foreach (Store store in listOfStores)
+            foreach (StoreFront store in listOfStores)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(store);

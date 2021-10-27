@@ -55,7 +55,7 @@ namespace StoreUI
                     case MenuType.AddStore:
                         page = new AddStore(new StoreFrontBL(new Repository()));
                         break;
-                    case MenuType.SignCustomer:
+                    case MenuType.SignUpCustomer:
                         page = new SignCustomer(new StoreFrontBL(new Repository()));
                         break;
                     case MenuType.ShowCustomer:

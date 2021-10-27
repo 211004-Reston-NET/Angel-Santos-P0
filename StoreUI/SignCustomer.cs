@@ -40,37 +40,37 @@ namespace StoreUI
                     //Laymen's term if a problem has happened while doing this code, it will instead do the catch block
                     try
                     {
-                         _storeBL.AddCustomer(_customer);
+                         _storeBL.CustomerSignUp(_customer);
                     }
                     catch (System.Exception)
                     {
                         Console.WriteLine("You must input value to all fields above");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
-                        return MenuType.SignCustomer;
+                        return MenuType.SignUpCustomer;
                     }
                     
                     return MenuType.StoreMenu;
                 case "5":
                     Console.WriteLine("Type in the value for the Username");
                     _customer.Username = Console.ReadLine();
-                    return MenuType.SignCustomer;
+                    return MenuType.SignUpCustomer;
                 case "4":
                     Console.WriteLine("Type in you First Name.");
                     _customer.FirstName = Console.ReadLine();
-                    return MenuType.SignCustomer;
+                    return MenuType.SignUpCustomer;
                 case "3":
                     Console.WriteLine("Type in you Last Name.");
                     _customer.LastName = Console.ReadLine();
-                    return MenuType.SignCustomer;
+                    return MenuType.SignUpCustomer;
                 case "2":
                     Console.WriteLine("Type in the value for the State");
                     _customer.State = Console.ReadLine();
-                    return MenuType.SignCustomer;
+                    return MenuType.SignUpCustomer;
                 case "1":
                     Console.WriteLine("Type in the value for the City");
                     _customer.City = Console.ReadLine();
-                    return MenuType.SignCustomer;
+                    return MenuType.SignUpCustomer;
                 case "0":
                     return MenuType.StoreMenu;
                 default:

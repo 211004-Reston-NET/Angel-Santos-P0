@@ -23,7 +23,7 @@ namespace StoreUI
                 case "0":
                     return MenuType.StoreAdmin;
                 case "1":
-                    return MenuType.SignCustomer;
+                    return MenuType.SignUpCustomer;
                 case "2":
                     return MenuType.AddStore;
                 case "3":

@@ -12,7 +12,7 @@ namespace StoreUI
         ShowProduct,
         QueryProduct,
         CartOrder,
-        SignCustomer,
+        SignUpCustomer,
         CustomerSignUp,
         ShowCustomer,
         Exit

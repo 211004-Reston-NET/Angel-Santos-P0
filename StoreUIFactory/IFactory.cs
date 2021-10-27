@@ -1,4 +1,4 @@
-namespace StoreUI
+/*namespace StoreUI
 {
     public interface IFactory
     {
@@ -10,3 +10,5 @@ namespace StoreUI
         IMenu GetMenu(MenuType p_menu);
     }
 }
+
+*/

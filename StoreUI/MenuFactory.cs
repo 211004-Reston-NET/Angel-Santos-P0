@@ -21,8 +21,8 @@ namespace StoreUI
                     return new CustomerSignUp(new StoreFrontBL(new Repository()));
                 case MenuType.ShowStore:
                     return new ShowStore(new StoreFrontBL(new Repository()));
-                case MenuType.ShowCustomer:
-                    return new ShowCustomer(new StoreFrontBL(new Repository()));
+                case MenuType.GetAllCustomer:
+                    return new GetAllCustomer(new StoreFrontBL(new Repository()));
                 //case MenuType.AddStore:
                     //return new AddStore(new StoreBL(new Respository()));
                 default:

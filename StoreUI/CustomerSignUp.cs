@@ -20,12 +20,13 @@ namespace StoreUI
             Console.WriteLine("First Name - " + _customer.FirstName);
             Console.WriteLine("Last Name - " + _customer.LastName);
             Console.WriteLine("Street Address - "+ _customer.StreetAddress);
-            Console.WriteLine("Street Address - "+ _customer.Email);
-            Console.WriteLine("[1] - Input your First Name");
-            Console.WriteLine("[2] - Input your Last Name");
-            Console.WriteLine("[3] - Input your Street Address");
-            Console.WriteLine("[4] - Input your Email");
-            Console.WriteLine("[5] - Submit your completed information.");
+            Console.WriteLine("Email - "+ _customer.Email);
+            Console.WriteLine("[1] - Input First Name");
+            Console.WriteLine("[2] - Input Last Name");
+            Console.WriteLine("[3] - Input Street Address");
+            Console.WriteLine("[4] - Input Email");
+            Console.WriteLine("[5] - Submit completed information.");
+            Console.WriteLine("[6] - List all customers.");
             Console.WriteLine("[0] - Go Back");
         }
 
@@ -43,7 +44,7 @@ namespace StoreUI
                     }
                     catch (System.Exception)
                     {
-                        Console.WriteLine("You must input value to all fields above");
+                        Console.WriteLine("You must input values to all fields above");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
                         return MenuType.CustomerSignUp;
@@ -106,14 +107,16 @@ namespace StoreUI
                         return MenuType.CustomerSignUp;
                     }
                     return MenuType.CustomerSignUp;
+                case "6":
+                   return MenuType.GetAllCustomer;
                
                 case "0":
-                    return MenuType.StoreMenu;
+                    return MenuType.CustomerSignUp;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowCustomer;
+                    return MenuType.CustomerSignUp;
             }
         }
     }

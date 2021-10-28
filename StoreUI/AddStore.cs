@@ -17,7 +17,7 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine("Adding a new Store");
-            Console.WriteLine("Name - " + _store.Name);
+            Console.WriteLine("Name - " + _store.StoreName);
             Console.WriteLine("State - "+ _store.State);
             Console.WriteLine("City - "+ _store.City);
             //Console.WriteLine("[4] - Add Store");
@@ -38,7 +38,7 @@ namespace StoreUI
                     return MenuType.StoreMenu;
                 case "3":
                     Console.WriteLine("Type in the value for the Name");
-                    _store.Name = Console.ReadLine();
+                    _store.StoreName = Console.ReadLine();
                     return MenuType.AddStore;
                 case "2":
                     Console.WriteLine("Type in the value for the State");

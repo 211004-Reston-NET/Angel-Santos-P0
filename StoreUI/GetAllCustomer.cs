@@ -6,10 +6,10 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class ShowCustomer : IMenu
+    public class GetAllCustomer : IMenu
     {
         private IStoreBL _storeBL;
-        public ShowCustomer(IStoreBL p_storeBL)
+        public GetAllCustomer(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
@@ -38,7 +38,7 @@ namespace StoreUI
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowCustomer;
+                    return MenuType.GetAllCustomer;
             }
         }
     }

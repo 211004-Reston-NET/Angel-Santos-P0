@@ -6,8 +6,9 @@ namespace StoreModels
 {
     public class Order
     {
-        public string LineItems { get; set; }
-        public string LocationID { get; set; }
-        public float Price { get; set; }
+        public int OrderId { get; set; }
+        public int LocationID { get; set; }
+        public string ItemName { get; set; }
+        public decimal Price { get; set; }
     }
 }

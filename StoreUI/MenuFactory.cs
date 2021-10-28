@@ -18,15 +18,15 @@ namespace StoreUI
                 case MenuType.StoreMenu:
                     return new StoreMenu();
                 case MenuType.CustomerSignUp:
-                    return new CustomerSignUp(new StoreFrontBL(new Repository()));
+                    return new CustomerSignUp(new StoreFrontBL(new RepositoryCloud()));
                 case MenuType.ShowStore:
-                    return new ShowStore(new StoreFrontBL(new Repository()));
+                    return new ShowStore(new StoreFrontBL(new RepositoryCloud()));
                 case MenuType.GetAllCustomer:
-                    return new ListCustomer(new StoreFrontBL(new Repository()));
+                    return new ListCustomer(new StoreFrontBL(new RepositoryCloud()));
                 case MenuType.ListProduct:
-                    return new ListProduct(new StoreFrontBL(new Repository()));
+                    return new ListProduct(new StoreFrontBL(new RepositoryCloud()));
                 case MenuType.QueryProduct:
-                    return new ListProduct(new StoreFrontBL(new Repository()));
+                    return new ListProduct(new StoreFrontBL(new RepositoryCloud()));
                 default:
                     return null;
             }

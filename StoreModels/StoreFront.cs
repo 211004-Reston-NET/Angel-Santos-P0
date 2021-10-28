@@ -10,8 +10,9 @@ namespace StoreModels
         private string _streetAddress;
         private string _city;
         private string _state;
-    
-          public string StoreName 
+        
+        public int StoreId { get; set; }
+        public string StoreName 
         {
             get { return _name; }
             set 

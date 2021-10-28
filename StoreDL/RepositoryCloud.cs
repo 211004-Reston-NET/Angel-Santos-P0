@@ -1,48 +1,36 @@
-/*using System.Collections.Generic;
-using System.Linq;
-using Entity = StoreDL.Entities;
+using System.Collections.Generic;
+using StoreDL;
 using Model = StoreModels;
 
-namespace StoreDL
+public class RepositoryCloud : IRepository
 {
-    public class RepositoryCloud : IRepository
-        private Entity.Store
+    public Model.Product AddProduct(Model.Product p_product)
     {
-        public Model.Customer AddCustomer(Model.Customer p_customer)
-        {
-            throw new System.NotImplementedException();
-        }
+        throw new System.NotImplementedException();
+    }
 
-        public Model.Product AddProduct(Model.Product p_product)
-        {
-            throw new System.NotImplementedException();
-        }
+    public Model.StoreFront AddStore(Model.StoreFront p_store)
+    {
+        throw new System.NotImplementedException();
+    }
 
-        public Model.Store AddStore(Model.Store p_store)
-        {
-            throw new System.NotImplementedException();
-        }
+    public Model.Customer CustomerSignUp(Model.Customer p_customer)
+    {
+        throw new System.NotImplementedException();
+    }
 
-        public List<Model.Cart> GetAllCart()
-        {
-            throw new System.NotImplementedException();
-        }
+    public List<Model.Customer> GetAllCustomer()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        public List<Model.Customer> GetAllCustomer()
-        {
-            throw new System.NotImplementedException();
-        }
+    public List<Model.Product> GetAllProduct()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        public List<Model.Product> GetAllProduct()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Model.Store> GetAllStore()
-        {
-            throw new System.NotImplementedException();
-        }
+    public List<Model.StoreFront> GetAllStore()
+    {
+        throw new System.NotImplementedException();
     }
 }
-
-*/

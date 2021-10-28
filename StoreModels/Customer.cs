@@ -7,23 +7,13 @@ namespace StoreModels
 {
     public class Customer
     {
-         public Customer()
-        {   
-            this._firstName = "First Name";
-            this._lastName = "Last Name";
-            this._streetAddress = "Street Address";
-            this._email = "Email";
-            this._orders = "Orders";
-            
-        }
         private string _firstName;
         private string _lastName;
         private string _streetAddress;
         private string _email;
         private string _orders;
            
-
-
+        public int CustomerId { get; set; }
         public string FirstName 
         { 
         get { return _firstName; }
@@ -80,7 +70,7 @@ namespace StoreModels
                 _email = value;    
             } 
         }
-        public string Orders { get; set;}
+        
             
         public override string ToString()
         {

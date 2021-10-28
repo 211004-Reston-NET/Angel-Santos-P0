@@ -1,6 +1,10 @@
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using StoreBL;
 using StoreDL;
-using StoreUI;
+using StoreDL.Entities;
+
 
 namespace StoreUI
 {
@@ -11,6 +15,15 @@ namespace StoreUI
     {
         public IMenu GetMenu(MenuType p_menu)
         {
+            var configuration = new ConfigurationBuilder() //Configurationbuilder is the class that came from the Microsoft.extensions.configuration package
+                .SetBasePath(Directory.GetCurrentDirectory()) //Gets the current directory of the RRUI file path
+                .AddJsonFile("appsetting.json") //Adds the appsetting.json file in our RRUI
+                .Build(); //Builds our configuration
+
+            DbContextOptions<DBp0Context> options = new DbContextOptionsBuilder<DBp0Context>()
+                .UseSqlServer(configuration.GetConnectionString("ReferenceToDB"))
+                .Options;
+
             switch (p_menu)
             {
                 case MenuType.MainMenu:
@@ -18,15 +31,15 @@ namespace StoreUI
                 case MenuType.StoreMenu:
                     return new StoreMenu();
                 case MenuType.CustomerSignUp:
-                    return new CustomerSignUp(new StoreFrontBL(new RepositoryCloud()));
+                    return new CustomerSignUp(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.ShowStore:
-                    return new ShowStore(new StoreFrontBL(new RepositoryCloud()));
+                    return new ShowStore(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.GetAllCustomer:
-                    return new ListCustomer(new StoreFrontBL(new RepositoryCloud()));
+                    return new ListCustomer(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.ListProduct:
-                    return new ListProduct(new StoreFrontBL(new RepositoryCloud()));
+                    return new ListProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.QueryProduct:
-                    return new ListProduct(new StoreFrontBL(new RepositoryCloud()));
+                    return new ListProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 default:
                     return null;
             }

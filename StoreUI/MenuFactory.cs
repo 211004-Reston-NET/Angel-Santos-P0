@@ -16,8 +16,8 @@ namespace StoreUI
         public IMenu GetMenu(MenuType p_menu)
         {
             var configuration = new ConfigurationBuilder() //Configurationbuilder is the class that came from the Microsoft.extensions.configuration package
-                .SetBasePath(Directory.GetCurrentDirectory()) //Gets the current directory of the RRUI file path
-                .AddJsonFile("appsetting.json") //Adds the appsetting.json file in our RRUI
+                .SetBasePath(Directory.GetCurrentDirectory()) //using System.IO - Gets the current directory of the StoreUI file path
+                .AddJsonFile("appsetting.json") //Adds the appsetting.json file in our StoreUI
                 .Build(); //Builds our configuration
 
             DbContextOptions<DBp0Context> options = new DbContextOptionsBuilder<DBp0Context>()

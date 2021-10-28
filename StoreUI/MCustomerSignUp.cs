@@ -50,7 +50,7 @@ namespace StoreUI
                         return MenuType.CustomerSignUp;
                     }
 
-                    return MenuType.StoreMenu;
+                    return MenuType.MainMenu;
                 case "1":
                     Console.WriteLine("Type in your First Name.");
                     try

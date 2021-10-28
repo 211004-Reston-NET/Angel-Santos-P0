@@ -10,7 +10,7 @@ namespace StoreUI
 /// Reads into Main Menu. Change this Interface to Products after Main Menu has Admin. 
         {
             Console.WriteLine("[1] Browse our cyberware!");
-            Console.WriteLine("[2] Place an item to your cart.");
+           // Console.WriteLine("[2] Place an item to your cart.");
             Console.WriteLine("[3] - Checkout");
             Console.WriteLine("[0] - Go to MainMenu");
         }
@@ -21,7 +21,7 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.ShowProduct;
+                    return MenuType.ListProduct;
                 case "2": 
                     //return MenuType.SelectProduct; 
                 case "3":

@@ -6,22 +6,23 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class GetAllCustomer : IMenu
+    public class ShowStore : IMenu
     {
         private IStoreBL _storeBL;
-        public GetAllCustomer(IStoreBL p_storeBL)
+        public static string _findProdName;
+        public ShowStore(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
         public void Menu()
         {
-            Console.WriteLine("List of Customers");
-            List<Customer> listOfCustomer = _storeBL.GetAllCustomer();
+            Console.WriteLine("List of Stores");
+            List<StoreFront> listOfStores = _storeBL.GetAllStore();
 
-            foreach (Customer customer in listOfCustomer)
+            foreach (StoreFront store in listOfStores)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(customer);
+                Console.WriteLine(store);
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
@@ -38,9 +39,8 @@ namespace StoreUI
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.GetAllCustomer;
+                    return MenuType.ShowStore;
             }
         }
     }
 }
-

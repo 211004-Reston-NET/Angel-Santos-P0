@@ -1,19 +1,29 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Net.Mail;
+
 
 namespace StoreModels
 {
     public class Customer
     {
+         public Customer()
+        {   
+            this._firstName = "First Name";
+            this._lastName = "Last Name";
+            this._streetAddress = "Street Address";
+            this._email = "Email";
+            this._orders = "Orders";
+            
+        }
         private string _firstName;
         private string _lastName;
         private string _streetAddress;
-        private string _city;
-        private string _state;
-        private string _email; 
-        private string _phoneNumber;
-        
+        private string _email;
+        private string _orders;
+           
+
+
         public string FirstName 
         { 
         get { return _firstName; }
@@ -55,64 +65,26 @@ namespace StoreModels
                 _streetAddress = value;    
             } 
         }
-        public string City
-        {
-            get { return _city; }
-            set 
-            {
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$" ))
-                {       
-                    throw new Exception("   City must contain only letters.    ");
-                }
-                _city = value;
-            }
-        }
-        public string State 
-        {
-            get { return _state; }
-            set 
-            {
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                {       
-                    throw new Exception("   State must contain only letters.    ");
-                }
-                _state = value;
-            }
-        }
+       
         public string Email 
-        {
-            get { return _email; }
+        { get { return _email; }
             set 
             {
-                if (!MailAddress.TryCreate(value, out var mailAddress))
+                if (string.IsNullOrEmpty(value))
                 {       
                     throw new Exception
                     (
-                        "   Invalid Email. Please, check spelling errors or try a different email.     "
+                        "   Email cannot be left empty.     "
                     );
                 }
                 _email = value;    
             } 
         }
-        public string PhoneNumber
-        {
-            get { return _phoneNumber; }
-            set 
-            {
-                if (!Regex.IsMatch(value, @"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}$"))
-                {       
-                    throw new Exception
-                    (
-                        "   Invalid Phone Number. Please follow a (555)-(555)-(5555) format.    "
-                    );
-                }
-                _phoneNumber = value;    
-            } 
-        }
-
+        public string Orders { get; set;}
+            
         public override string ToString()
         {
-            return $"First Name: {FirstName}\nLast Name:{LastName}\nStreet Address: {StreetAddress}\nCity: {City}\nState: {State}\nEmail: {Email}\nPhone Number: {PhoneNumber}";
+            return $"First Name: {FirstName}\nLast Name:{LastName}\nStreet Address: {StreetAddress}\nEmail: {Email}";
         }
     }
 }

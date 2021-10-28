@@ -6,18 +6,23 @@ namespace StoreModels
 {
     public class Product
     {
-        
-        public string Name {get; set; }
-        public string Type { get; set; }
-        public float Price { get; set; }
-        public int Stock { get; set; }
-
-        public override string ToString()
-        {
-            return $"Name: {Name}\nType: {Type}\nPrice: {Price}\nStock: {Stock}";
-        }
-
+        private string _name;
+        private string _type;
+        private string _price;
+        private string _description;
+        private string _stock;
+        public string Name 
+        { get;set; } 
+        public string Type 
+        { get;set; } 
+        public string Price 
+        { get;set; } 
+        public string Description 
+        { get;set; } 
+        public string Stock 
+        { get;set; } 
     }
 }
+
 
 

@@ -16,10 +16,10 @@ namespace StoreDL
         private const string _filepath = "./../StoreDL/Database/";
         private string _jsonString;
 
-        public Store AddStore(Store p_store)
+        public StoreFront AddStore(StoreFront p_store)
         {
             //The reason why we need to grab all the information back is because File.WriteAllText method will overwrite anything inside the JSON file
-            List<Store> listOfStores = GetAllStore();
+            List<StoreFront> listOfStores = GetAllStore();
 
             //We added the new store from the parameter 
             listOfStores.Add(p_store);
@@ -34,7 +34,7 @@ namespace StoreDL
         }
 
 
-        public List<Store> GetAllStore()
+        public List<StoreFront> GetAllStore()
         {
             //File class will just read everything in the Resturant.json and put it in a string
             _jsonString = File.ReadAllText(_filepath+"store.json");
@@ -42,10 +42,10 @@ namespace StoreDL
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
             //The parameter of the Deserialize method needs a string variable that holds the json file
-            return JsonSerializer.Deserialize<List<Store>>(_jsonString);
+            return JsonSerializer.Deserialize<List<StoreFront>>(_jsonString);
         }
 
-        public Customer AddCustomer(Customer p_customer)
+        public Customer CustomerSignUp(Customer p_customer)
         {
             //The reason why we need to grab all the information back is because File.WriteAllText method will overwrite anything inside the JSON file
             List<Customer> listOfCustomer = GetAllCustomer();
@@ -103,11 +103,6 @@ namespace StoreDL
             return JsonSerializer.Deserialize<List<Product>>(_jsonString);
 
         }
-        public List<Cart> GetAllCart()
-        {
-            _jsonString = File.ReadAllText(_filepath+"product.json");
-
-            return JsonSerializer.Deserialize<List<Cart>>(_jsonString);
-        }
+        
     }
 }

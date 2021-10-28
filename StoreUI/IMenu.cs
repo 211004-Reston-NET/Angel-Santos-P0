@@ -8,7 +8,7 @@ namespace StoreUI
         ShowStore,
         AddStore,
         AddProduct,
-        ShowProduct,
+        ListProduct,
         QueryProduct,
         CustomerSignUp,
         GetAllCustomer,

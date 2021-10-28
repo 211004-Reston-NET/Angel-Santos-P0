@@ -22,9 +22,11 @@ namespace StoreUI
                 case MenuType.ShowStore:
                     return new ShowStore(new StoreFrontBL(new Repository()));
                 case MenuType.GetAllCustomer:
-                    return new GetAllCustomer(new StoreFrontBL(new Repository()));
-                //case MenuType.AddStore:
-                    //return new AddStore(new StoreBL(new Respository()));
+                    return new ListCustomer(new StoreFrontBL(new Repository()));
+                case MenuType.ListProduct:
+                    return new ListProduct(new StoreFrontBL(new Repository()));
+                case MenuType.QueryProduct:
+                    return new ListProduct(new StoreFrontBL(new Repository()));
                 default:
                     return null;
             }

@@ -7,8 +7,7 @@ namespace ModelTest
     public class UnitTest1 
     {
         /// <summary>
-        /// Will test if the city property will set with valid data
-        /// valid data - anything with letters only -string
+        /// Will test if the city property will set with valid data 
           [Fact] // Fact is a testcase that doesn't have any parameters
           //Runs only once.
         public void NameSetValidData() 
@@ -16,36 +15,42 @@ namespace ModelTest
             //Arrange
         Customer _custTest = new Customer();
         string name = "Birdman";
+      
         
 
             //Act
         _custTest.FirstName = name; 
+   
 
             //Assert
         Assert.NotNull(_custTest.FirstName);
         Assert.Equal(_custTest.FirstName, name);
+      
         
-        }  
+        }
+          
 
         /// <summary>
-        /// Will test for exception from Name Property for invalid data
-        /// invalid data - not string
+        /// Will test for exception from Name Property 
+        /// for invalid data invalid data - not string.
         /// </summary>
-        [Theory] // Theory creates a parameter test case
-        [InlineData("21d")] //InlineData is data passed to parameter of 
-                        //test method
-        [InlineData("adc")]
-        [InlineData("scc")]  //More test methods may be added
-        [InlineData("sc")]
+        [Theory] 
+        // Theory creates a parameter test case 
+        // InlineData is data passed to parameter of test Method         
+        [InlineData("21d")] 
+        [InlineData("@birdland.net.net@tdc")] //More test methods may be added
+        [InlineData("1234emailsomething.net")]  
+        [InlineData("s@c@g.net")]
         
         
-        public void NameShouldFailIfInvalid(string p_input)
+        public void FailIfInvalid(string p_input)
         {//Arrange
             Customer _custTest = new Customer();
 
             //Act & Assert
             //Throws method will only pass if the code you did will
             //give an Exception
+            
             Assert.Throws<Exception>(() => _custTest.FirstName = p_input); 
             // Because the Inline Data are strings - the result is Failed: 4; 
             // None of them returned an exception as the 'Act & Assert' method specified.

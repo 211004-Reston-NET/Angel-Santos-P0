@@ -10,6 +10,10 @@ namespace StoreModels
         public int Inventory    { get; set; }
         public decimal Price    {  get; set; }
         
+        public override string ToString()
+        {
+            return $"LocationId: {LocationId}\nItemName: {ItemName}\nInventory:{Inventory}\nPrice: {Price}";
+        }    
     }    
 }
 

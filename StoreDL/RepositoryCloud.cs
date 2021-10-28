@@ -38,12 +38,36 @@ namespace StoreDL
 
         public Model.Customer CustomerSignUp(Model.Customer p_customer)
         {
-            throw new System.NotImplementedException();
+            _context.Customers.Add
+            (
+                new Entity.Customer()
+                {
+                    CustomerId = p_customer.CustomerId,
+                    FirstName = p_customer.FirstName,
+                    LastName = p_customer.LastName,
+                    StreetAddress = p_customer.StreetAddress,
+                    Email = p_customer.Email
+                }
+            );
+
+            //Save changes to DB
+            _context.SaveChanges();
+            return p_customer;
         }
 
         public List<Model.Customer> GetAllCustomer()
         {
-            throw new System.NotImplementedException();
+            return _context.Customers.Select(cust => 
+                new Model.Customer()
+                {
+                    CustomerId = cust.CustomerId,
+                    FirstName = cust.FirstName,
+                    LastName = cust.LastName,
+                    StreetAddress = cust.StreetAddress,
+                    Email = cust.Email
+                    
+                }
+            ).ToList();
         }
 
         public List<Model.Product> GetAllProduct()

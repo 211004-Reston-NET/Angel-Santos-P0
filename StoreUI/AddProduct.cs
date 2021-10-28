@@ -34,6 +34,23 @@ namespace StoreUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                
+                case "1":
+                    Console.WriteLine("Type in the value for the Name");
+                    _prod.Name = Console.ReadLine();
+                    return MenuType.AddProduct;
+                case "2":
+                    Console.WriteLine("Type in the value for the Category");
+                    _prod.Category = Console.ReadLine();
+                    return MenuType.AddProduct;
+                case "3":
+                    Console.WriteLine("Type in the value for the Price");
+                    _prod.Price = Decimal.Parse(Console.ReadLine());
+                    return MenuType.AddProduct;
+                case "4":
+                    Console.WriteLine("Type in the value for the Description");
+                    _prod.Name = Console.ReadLine();
+                    return MenuType.AddProduct;
                 case "5":
                     //Anything inside the try block will be catched if an exception has risen
                     //Laymen's term if a problem has happened while doing this code, it will instead do the catch block
@@ -49,18 +66,6 @@ namespace StoreUI
                         return MenuType.AddProduct;
                     }
                     return MenuType.StoreMenu;
-                case "3":
-                    Console.WriteLine("Type in the value for the Name");
-                    _prod.Name = Console.ReadLine();
-                    return MenuType.AddProduct;
-                case "2":
-                    Console.WriteLine("Type in the value for the Category");
-                    _prod.Category = Console.ReadLine();
-                    return MenuType.AddProduct;
-                case "1":
-                    Console.WriteLine("Type in the value for the Price");
-                    _prod.Price = Decimal.Parse(Console.ReadLine());
-                    return MenuType.AddProduct;
                 case "0":
                     return MenuType.StoreMenu;
                 default:

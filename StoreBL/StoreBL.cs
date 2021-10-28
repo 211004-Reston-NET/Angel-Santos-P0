@@ -36,7 +36,7 @@ namespace StoreBL
             List<StoreFront> listOfStore = _repo.GetAllStore();
             for (int i = 0; i < listOfStore.Count; i++)
             {
-                listOfStore[i].StoreName = listOfStore[i].StoreName.ToLower(); 
+                listOfStore[i].StoreName = listOfStore[i].StoreName.ToUpper(); 
             }
 
             return listOfStore;
@@ -47,7 +47,7 @@ namespace StoreBL
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             for (int i = 0; i < listOfCustomer.Count; i++)
             {
-                listOfCustomer[i].FirstName = listOfCustomer[i].FirstName.ToLower(); 
+                listOfCustomer[i].FirstName = listOfCustomer[i].FirstName.ToUpper(); 
             }
 
             return listOfCustomer;
@@ -59,7 +59,7 @@ namespace StoreBL
             List<Product> listOfProduct = _repo.GetAllProduct();
             for (int i = 0; i < listOfProduct.Count; i++)
             {
-                listOfProduct[i].Name = listOfProduct[i].Name.ToLower(); 
+                listOfProduct[i].Name = listOfProduct[i].Name.ToUpper(); 
             }
 
             return listOfProduct;

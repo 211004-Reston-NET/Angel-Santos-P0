@@ -4,12 +4,12 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class CustomerSignUp : IMenu
+    public class AddCustomer : IMenu
     {
         private static Customer _customer = new Customer();
         private IStoreBL _storeBL;
          
-        public CustomerSignUp(IStoreBL p_storeBL)
+        public AddCustomer(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }

@@ -6,11 +6,11 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class ShowStore : IMenu
+    public class ListStore : IMenu
     {
         private IStoreBL _storeBL;
         public static string _findProdName;
-        public ShowStore(IStoreBL p_storeBL)
+        public ListStore(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
@@ -39,7 +39,7 @@ namespace StoreUI
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowStore;
+                    return MenuType.ListStore;
             }
         }
     }

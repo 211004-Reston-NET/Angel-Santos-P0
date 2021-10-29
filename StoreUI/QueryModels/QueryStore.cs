@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using StoreBL;
 using StoreModels;
 
-
 namespace StoreUI
 {
-    public class ListStore : IMenu
+    public class QueryStore : IMenu
     {
         private IStoreBL _storeBL;
-        public static string _findProdName;
-        public ListStore(IStoreBL p_storeBL)
+        
+        public QueryStore(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
+        
         public void Menu()
         {
-            Console.WriteLine("List of Stores");
-            List<StoreFront> listOfStores = _storeBL.GetAllStore();
-
-            foreach (StoreFront store in listOfStores)
+            Console.WriteLine("/n--Search Results--/n");
+            List<StoreFront> listOfStore = _storeBL.GetStoreName(ListStore._findStoreName.StoreName);
+            
+            foreach (StoreFront store in listOfStore)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(store);
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
+            
         }
 
         public MenuType UserChoice()
@@ -34,13 +35,15 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.StoreMenu;
+                    return MenuType.ListStore;
+                
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ListStore;
+                    return MenuType.QueryStore;
             }
         }
     }
 }
+

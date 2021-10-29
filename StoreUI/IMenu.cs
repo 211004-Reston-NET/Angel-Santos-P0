@@ -7,6 +7,7 @@ namespace StoreUI
         StoreMenu,
         ListStore,
         AddStore,
+        QueryStore,
         AddProduct,
         ListProduct,
         QueryProduct,

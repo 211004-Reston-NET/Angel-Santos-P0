@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using StoreBL;
 using StoreModels;
 
+
 namespace StoreUI
 {
-    public class QueryProduct : IMenu
+    public class ListStore : IMenu
     {
         private IStoreBL _storeBL;
-        
-        public QueryProduct(IStoreBL p_storeBL)
+        public static StoreFront _findStoreName;
+        public ListStore(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
-        
         public void Menu()
         {
-            Console.WriteLine("List of Products");
-            List<Product> listOfProduct = _storeBL.GetProduct(ListProduct._findProdName);
-            
+            Console.WriteLine("List of Stores");
+            List<StoreFront> listOfStore = _storeBL.GetAllStore();
 
-            foreach (Product prod in listOfProduct)
+            foreach (StoreFront store in listOfStore)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(prod);
+                Console.WriteLine(store);
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
@@ -35,15 +34,17 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.ListProduct;
-                
+                    return MenuType.MainMenu;
+                case "1":
+                    Console.WriteLine("Enter a name for the Restaurant you want to find");
+                    _findStoreName.StoreName = Console.ReadLine();
+                    return MenuType.QueryStore;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.QueryProduct;
+                    return MenuType.ListStore;
             }
         }
     }
 }
-

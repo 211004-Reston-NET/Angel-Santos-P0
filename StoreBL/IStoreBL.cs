@@ -11,6 +11,7 @@ namespace StoreBL
         List<Customer> GetAllCustomer();
         Product AddProduct(Product p_product);
         List<Product> GetAllProduct();
-        List<Product> GetProduct(string p_name);
+        List<Product> GetProductName(string p_name);
+        List<StoreFront> GetStoreName(string p_name);
     }
 }

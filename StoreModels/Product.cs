@@ -6,10 +6,10 @@ namespace StoreModels
 {
     public class Product
     {
-        private string _name;
-        private string _type;
-        private string _price;
-        private string _description;
+        //private string _name;
+        //private string _type;
+        //private string _price;
+        //private string _description;
         
 
         public int ProductId { get; set; }

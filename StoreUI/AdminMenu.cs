@@ -1,4 +1,4 @@
-using System;
+/*using System;
 
 namespace StoreUI
 {
@@ -14,7 +14,7 @@ namespace StoreUI
 +-+-+-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+                                                                                  
 ";
             Console.WriteLine(title);
-            Console.WriteLine("GPUs, CyberWare, Cybernetic Peripherals - We Have It All!\n Select an option from the Main Menu.");
+            Console.WriteLine("GPUs, CyberWare, Cybernetic Peripherals, We Have It All!\n Please, select an option from the Main Menu.");
             Console.WriteLine("[1] - Create an Account ");
             Console.WriteLine("[2] - List Store Locations.");
             Console.WriteLine("[3] - Search Store Locations.");
@@ -32,7 +32,7 @@ namespace StoreUI
                 case "2":
                     return MenuType.ListStore;
                 case "3":
-                    return MenuType.QueryStore;
+                    return MenuType.ListStore;
                 case "4":
                     return MenuType.StoreMenu;
                 case "5":
@@ -46,3 +46,4 @@ namespace StoreUI
         }
     }
 }
+*/

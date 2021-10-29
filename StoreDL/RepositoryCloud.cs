@@ -106,7 +106,17 @@ namespace StoreDL
 
         public List<Model.StoreFront> GetAllStore()
         {
-            throw new System.NotImplementedException();
+            return _context.StoreFronts.Select(store => 
+                new Model.StoreFront()
+                {
+                    StoreId = store.StoreId,
+                    StoreName = store.StoreName,
+                    StreetAddress = store.StreetAddress,
+                    City = store.City,
+                    State = store.State
+                    
+                }
+            ).ToList();
         }
     }
 }

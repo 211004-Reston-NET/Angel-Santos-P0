@@ -41,6 +41,11 @@ namespace StoreBL
 
             return listOfStore;
         }
+        public List<StoreFront> GetStoreName(string p_name)
+        {
+            List<StoreFront> listOfStore = _repo.GetAllStore();
+            return listOfStore.Where(store => store.StoreName.ToLower().Contains(p_name.ToLower())).ToList();
+        }
         public List<Customer> GetAllCustomer()
         {
             
@@ -64,10 +69,16 @@ namespace StoreBL
 
             return listOfProduct;
         }
-        public List<Product> GetProduct(string p_name)
+        public List<Product> GetProductName(string p_name)
         {
             List<Product> listOfProduct = _repo.GetAllProduct();
             return listOfProduct.Where(prod => prod.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
+/*        public List<Product> GetProductCategory(string p_category)
+        {
+            List<Product> listOfProduct = _repo.GetAllProduct();
+            return listOfProduct.Where(prod => prod.Category.ToLower().Contains(p_category.ToLower())).ToList();
+        }
+        */
     }
 }

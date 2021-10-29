@@ -11,7 +11,7 @@ namespace StoreModels
         private string _lastName;
         private string _streetAddress;
         private string _email;
-        private string _orders;
+        //private string _orders;
            
         public int CustomerId { get; set; }
         public string FirstName 

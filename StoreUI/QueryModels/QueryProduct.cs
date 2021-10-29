@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using StoreBL;
 using StoreModels;
 
-
 namespace StoreUI
 {
-    public class ListProduct : IMenu
+    public class QueryProduct : IMenu
     {
         private IStoreBL _storeBL;
-        public static string _findProdName;
         
-        public ListProduct(IStoreBL p_storeBL)
+        public QueryProduct(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
+        
         public void Menu()
         {
-            Console.WriteLine("List of Products");
-            List<Product> listOfProduct = _storeBL.GetAllProduct();
+            Console.WriteLine("--Search Results--");
+            List<Product> listOfProduct = _storeBL.GetProductName(ListProduct._findProdName.Name);
             
-
             foreach (Product prod in listOfProduct)
             {
                 Console.WriteLine("====================");
@@ -28,6 +26,7 @@ namespace StoreUI
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
+            
         }
 
         public MenuType UserChoice()
@@ -36,17 +35,13 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.StoreMenu;
-                case "1":
-                    Console.WriteLine("Enter a name for the Product");
-                    _findProdName = Console.ReadLine();
-                    return MenuType.QueryProduct;
+                    return MenuType.ListProduct;
                 
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ListProduct;
+                    return MenuType.QueryProduct;
             }
         }
     }

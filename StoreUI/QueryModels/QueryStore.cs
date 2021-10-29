@@ -16,7 +16,7 @@ namespace StoreUI
         
         public void Menu()
         {
-            Console.WriteLine("/n--Search Results--/n");
+            Console.WriteLine("--Search Results--");
             List<StoreFront> listOfStore = _storeBL.GetStoreName(ListStore._findStoreName.StoreName);
             
             foreach (StoreFront store in listOfStore)

@@ -10,6 +10,7 @@ namespace StoreUI
     {
         private IStoreBL _storeBL;
         public static Product _findProdName = new Product();
+        public static Product _findProdCategory = new Product();
         
         public ListProduct(IStoreBL p_storeBL)
         {
@@ -42,22 +43,21 @@ namespace StoreUI
                     Console.WriteLine("Enter a name for the Product, you want to find");
                     _findProdName.Name = Console.ReadLine();
                     return MenuType.QueryProduct;
-                /*case "2":
-                    Console.WriteLine("Enter the Category of the restaurant you want to find");
-
+                case "2":
+                    Console.WriteLine("Enter the Category of the Product you want to find");
                     try
                     {
                          _findProdName.Category = Console.ReadLine();
                     }
                     catch (System.Exception)
                     {
-                        Console.WriteLine("Please put in a number!");
+                        Console.WriteLine("Please put in letters!");
                         Console.WriteLine("Please press Enter to continue");
                         Console.ReadLine();
                         return MenuType.QueryProduct;
                     }
                     return MenuType.QueryProduct;
-                */
+                
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

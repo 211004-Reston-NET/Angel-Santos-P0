@@ -1,10 +1,10 @@
-using System;
+/*using System;
 using StoreModels;
 using Xunit;
 
 namespace ModelTest 
 {//CLI 'dotnet test' to run test cases
-    public class UnitTest1 
+    public class CustomerTest
     {
         /// <summary>
         /// Will test if the city property will set with valid data 
@@ -59,4 +59,4 @@ namespace ModelTest
     }
 }
 
-            
+ */           

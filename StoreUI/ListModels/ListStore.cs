@@ -9,7 +9,7 @@ namespace StoreUI
     public class ListStore : IMenu
     {
         private IStoreBL _storeBL;
-        public static StoreFront _findStoreName;
+        public static StoreFront _findStoreName = new StoreFront();
         public ListStore(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
@@ -36,7 +36,7 @@ namespace StoreUI
                 case "0":
                     return MenuType.MainMenu;
                 case "1":
-                    Console.WriteLine("Enter a name for the Restaurant you want to find");
+                    Console.WriteLine("Enter a name for the Store you want to find");
                     _findStoreName.StoreName = Console.ReadLine();
                     return MenuType.QueryStore;
                 default:

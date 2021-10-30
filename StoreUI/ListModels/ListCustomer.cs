@@ -9,6 +9,7 @@ namespace StoreUI
     public class ListCustomer : IMenu
     {
         private IStoreBL _storeBL;
+        public static Customer _findCustName = new Customer();
         public ListCustomer(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
@@ -33,7 +34,7 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.StoreMenu;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

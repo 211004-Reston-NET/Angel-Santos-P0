@@ -36,6 +36,8 @@ namespace StoreUI
                     return new ListStore(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.QueryStore:
                     return new QueryStore(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
+                case MenuType.QueryCustomer:
+                    return new QueryCustomer(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.CustomerSignUp:
                     return new AddCustomer(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.GetAllCustomer:

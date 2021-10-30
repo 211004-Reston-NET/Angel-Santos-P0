@@ -1,16 +1,16 @@
-using System;
+/*using System;
 using StoreBL;
 using StoreModels;
 
 namespace StoreUI
 {
-    public class AddCustomer : IMenu
+    public class AddOrder : IMenu
     {
-        private static Customer _customer = new Customer();
+        private static Order _order = new Order();
         private IStoreBL _storeBL;
         public static string _findCustName;
          
-        public AddCustomer(IStoreBL p_storeBL)
+        public AddOrder(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
@@ -18,9 +18,9 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine(" Please, add your credentials. ");
-            Console.WriteLine("First Name - " + _customer.FirstName);
-            Console.WriteLine("Last Name - " + _customer.LastName);
-            Console.WriteLine("Street Address - "+ _customer.StreetAddress);
+            Console.WriteLine("First Name - " + _order.OrderId);
+            Console.WriteLine("Item you wish to purchase" + _order.ItemName);
+            Console.WriteLine("Street Address - "+ _order.StreetAddress);
             Console.WriteLine("Email - "+ _customer.Email);
             Console.WriteLine("[1] - Input First Name");
             Console.WriteLine("[2] - Input Last Name");
@@ -127,3 +127,5 @@ namespace StoreUI
         }
     }
 }
+
+*/

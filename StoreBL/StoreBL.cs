@@ -57,12 +57,18 @@ namespace StoreBL
 
             return listOfCustomer;
         
+        }
+        public List<Customer> GetCustomerName(string p_customerfname)
+        {
+            List<Customer> listOfCustomer = _repo.GetAllCustomer();
+            return listOfCustomer.Where(cust => cust.FirstName.ToLower().Contains(p_customerfname.ToLower())).ToList();
         }        
         public List<Product> GetAllProduct()
         {
             
             List<Product> listOfProduct = _repo.GetAllProduct();
             for (int i = 0; i < listOfProduct.Count; i++)
+            //Below sets product names to Uppercase
             {
                 listOfProduct[i].Name = listOfProduct[i].Name.ToUpper(); 
             }

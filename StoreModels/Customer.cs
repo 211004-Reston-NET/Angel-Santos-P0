@@ -7,6 +7,7 @@ namespace StoreModels
 {
     public class Customer
     {
+        
         private string _firstName;
         private string _lastName;
         private string _streetAddress;

@@ -1,10 +1,12 @@
 using System;
+using StoreModels;
 
 namespace StoreUI
 {
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
     public class MainMenu : IMenu
     {
+        public static string _findStoreName;
         public void Menu()
         {
             string title = @"
@@ -32,6 +34,8 @@ namespace StoreUI
                 case "2":
                     return MenuType.ListStore;
                 case "3":
+                    Console.WriteLine("Enter a name for the Store, you want to find");
+                    _findStoreName = Console.ReadLine();
                     return MenuType.QueryStore;
                 case "4":
                     return MenuType.StoreMenu;

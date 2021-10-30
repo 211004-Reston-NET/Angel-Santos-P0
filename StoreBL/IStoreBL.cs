@@ -7,11 +7,12 @@ namespace StoreBL
     {
         StoreFront AddStore(StoreFront p_store);
         List<StoreFront> GetAllStore();
-        Customer CustomerSignUp(Customer p_customer);
         List<Customer> GetAllCustomer();
+        Customer CustomerSignUp(Customer p_customer);
         Product AddProduct(Product p_product);
         List<Product> GetAllProduct();
         List<Product> GetProductName(string p_name);
+        List<Customer> GetCustomerName(string p_name);
         List<StoreFront> GetStoreName(string p_name);
     }
 }

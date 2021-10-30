@@ -13,6 +13,7 @@ namespace StoreUI
         QueryProduct,
         CustomerSignUp,
         GetAllCustomer,
+        QueryCustomer,
         Exit
     }
 

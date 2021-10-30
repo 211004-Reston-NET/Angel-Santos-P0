@@ -5,11 +5,11 @@ using StoreModels;
 
 namespace StoreUI
 {
-    public class QueryStore : IMenu
+    public class QueryCustomer : IMenu
     {
         private IStoreBL _storeBL;
         
-        public QueryStore(IStoreBL p_storeBL)
+        public QueryCustomer(IStoreBL p_storeBL)
         {
             _storeBL = p_storeBL;
         }
@@ -17,12 +17,12 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine("--Search Results--");
-            List<StoreFront> listOfStore = _storeBL.GetStoreName(MainMenu._findStoreName);
+            List<Customer> listOfCustomer = _storeBL.GetCustomerName(AddCustomer._findCustName);
             
-            foreach (StoreFront store in listOfStore)
+            foreach (Customer cust in listOfCustomer)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(store);
+                Console.WriteLine(cust);
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
@@ -35,13 +35,13 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.ListStore;
+                    return MenuType.MainMenu;
                 
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.QueryStore;
+                    return MenuType.QueryCustomer;
             }
         }
     }

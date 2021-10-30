@@ -20,7 +20,7 @@ namespace StoreModels
         
         public override string ToString()
         {
-            return $"Name: {Name}\nCategory:{Category}\nPrice: {Price}\nDescription: {Description}";
+            return $"Product: {ProductId}\nName: {Name}\nCategory:{Category}\nPrice: {Price}\nDescription: {Description}";
         }
     }
 }

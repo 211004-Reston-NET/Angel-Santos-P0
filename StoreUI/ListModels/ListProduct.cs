@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using System.Collections.Generic;
 using StoreBL;
 using StoreModels;
@@ -32,7 +32,7 @@ namespace StoreUI
             Console.WriteLine("[0] - Go Back");
         }
 
-        public MenuType UserChoice()
+        /*public MenuType UserChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
@@ -59,12 +59,10 @@ namespace StoreUI
                     return MenuType.QueryProduct;
                 
                 default:
-                    Console.WriteLine("Please input a valid response!");
-                    Console.WriteLine("Press Enter to continue");
-                    Console.ReadLine();
                     return MenuType.ListProduct;
             }
         }
     }
 }
 
+*/

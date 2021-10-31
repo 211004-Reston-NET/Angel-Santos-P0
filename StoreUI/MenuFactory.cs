@@ -29,7 +29,7 @@ namespace StoreUI
                 case MenuType.MainMenu:
                     return new MainMenu();
                 case MenuType.StoreMenu:
-                    return new StoreMenu();
+                    return new StoreMenu(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.AddStore:
                     return new AddStore(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.ListStore:
@@ -44,10 +44,10 @@ namespace StoreUI
                     return new ListCustomer(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.AddProduct:
                     return new AddProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
-                case MenuType.ListProduct:
-                    return new ListProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
-                case MenuType.QueryProduct:
-                    return new QueryProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
+                //case MenuType.ListProduct:
+                //    return new ListProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
+               // case MenuType.QueryProduct:
+               //     return new QueryProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 default:
                     return null;
             }

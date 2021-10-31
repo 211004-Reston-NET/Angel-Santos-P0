@@ -17,8 +17,8 @@ namespace StoreUI
 
         public void Menu()
         {
-            Console.WriteLine(" Please, add your credentials. ");
-            Console.WriteLine("First Name - " + _order.OrderId);
+            Console.WriteLine(" Select an Item(ID) you wish to purchase. ");
+            Console.WriteLine(" - " + _order.OrderId);
             Console.WriteLine("Item you wish to purchase" + _order.ItemName);
             Console.WriteLine("Street Address - "+ _order.StreetAddress);
             Console.WriteLine("Email - "+ _customer.Email);

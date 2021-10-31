@@ -117,7 +117,7 @@ namespace StoreUI
                    return MenuType.QueryCustomer;
                
                 case "0":
-                    return MenuType.CustomerSignUp;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

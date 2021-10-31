@@ -42,8 +42,8 @@ namespace StoreUI
                     return new AddCustomer(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                 case MenuType.GetAllCustomer:
                     return new ListCustomer(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
-                case MenuType.AddProduct:
-                    return new AddProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
+                //case MenuType.PlaceOrder:
+               //     return new PlaceOrder(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options)));
                 //case MenuType.ListProduct:
                 //    return new ListProduct(new StoreFrontBL(new RepositoryCloud(new DBp0Context(options))));
                // case MenuType.QueryProduct:

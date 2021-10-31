@@ -8,11 +8,13 @@ namespace StoreUI
     public class StoreMenu : IMenu
     {
         private IStoreBL _storeBL;
+        
 
         public StoreMenu(IStoreBL p_storeBL)
         {
              _storeBL = p_storeBL;
         }
+        
         
         
 
@@ -29,12 +31,12 @@ namespace StoreUI
 
         public MenuType UserChoice()
         {
+            List<Product> listOfProduct = _storeBL.GetAllProduct();
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
                 case "1":
-               
-                List<Product> listOfProduct = _storeBL.GetAllProduct();
+
                 foreach (Product prod in listOfProduct)
                     {
                     Console.WriteLine("====================");
@@ -44,13 +46,18 @@ namespace StoreUI
                 Console.WriteLine("====================");
                 Console.WriteLine("Press Enter to return to Store Menu options.");
                 Console.ReadLine();
+
                 return MenuType.StoreMenu;
                 case "2": 
-                    //return MenuType.AddOrder; 
+                    return MenuType.StoreMenu; 
+
                 case "3":
+
                     return MenuType.StoreMenu;
                 case "0":
+
                     return MenuType.MainMenu;
+                    
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

@@ -14,7 +14,27 @@ namespace StoreBL
         {
             _repo = p_repo;
         }
+        
+        public int ReadConsoleParser()
+        {
+            if (int.TryParse(Console.ReadLine(), out int num))
+            {       
+                return num;
+            }
+            Console.WriteLine("   Must be an Integer  ");
+            return 0;
+        }
 
+        public void PrintAllProducts()
+        {
+            List<Product> listOfProduct = GetAllProduct();
+                foreach (Product prod in listOfProduct)
+                    {
+                    Console.WriteLine("====================");
+                    Console.WriteLine(prod);
+                    Console.WriteLine("====================");
+                    }
+        }
         public StoreFront AddStore(StoreFront p_store)
         {
             return _repo.AddStore(p_store);
@@ -28,6 +48,11 @@ namespace StoreBL
         public Customer CustomerSignUp(Customer p_customer)
             {
             return _repo.CustomerSignUp(p_customer);
+            }
+        
+        public PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order)
+            {
+            return _repo.AddPurchaseOrder(p_order);
             }
 
         public List<StoreFront> GetAllStore()
@@ -70,7 +95,7 @@ namespace StoreBL
             for (int i = 0; i < listOfProduct.Count; i++)
             //Below sets product names to Uppercase
             {
-                listOfProduct[i].Name = listOfProduct[i].Name.ToUpper(); 
+                listOfProduct[i].ItemName = listOfProduct[i].ItemName.ToUpper(); 
             }
 
             return listOfProduct;
@@ -78,7 +103,7 @@ namespace StoreBL
         public List<Product> GetProductName(string p_name)
         {
             List<Product> listOfProduct = _repo.GetAllProduct();
-            return listOfProduct.Where(prod => prod.Name.ToLower().Contains(p_name.ToLower())).ToList();
+            return listOfProduct.Where(prod => prod.ItemName.ToLower().Contains(p_name.ToLower())).ToList();
         }
 /*        public List<Product> GetProductCategory(string p_category)
         {

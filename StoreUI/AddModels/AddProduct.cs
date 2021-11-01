@@ -17,7 +17,7 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine("Adding a new Product");
-            Console.WriteLine("Name - " + _prod.Name);
+            Console.WriteLine("Name - " + _prod.ItemName);
             Console.WriteLine("Category - "+ _prod.Category);
             Console.WriteLine("Price - "+ _prod.Price);
             Console.WriteLine("Description - "+ _prod.Description);
@@ -37,7 +37,7 @@ namespace StoreUI
                 
                 case "1":
                     Console.WriteLine("Type in the value for the Name");
-                    _prod.Name = Console.ReadLine();
+                    _prod.ItemName = Console.ReadLine();
                     return MenuType.AddProduct;
                 case "2":
                     Console.WriteLine("Type in the value for the Category");
@@ -49,7 +49,7 @@ namespace StoreUI
                     return MenuType.AddProduct;
                 case "4":
                     Console.WriteLine("Type in the value for the Description");
-                    _prod.Name = Console.ReadLine();
+                    _prod.ItemName = Console.ReadLine();
                     return MenuType.AddProduct;
                 case "5":
                     //Anything inside the try block will be catched if an exception has risen

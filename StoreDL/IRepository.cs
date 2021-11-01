@@ -11,6 +11,7 @@ namespace StoreDL
         Customer CustomerSignUp(Customer p_customer);
         List<Customer> GetAllCustomer();
         Product AddProduct(Product p_product);
+        PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);
         List<Product> GetAllProduct();
         
         

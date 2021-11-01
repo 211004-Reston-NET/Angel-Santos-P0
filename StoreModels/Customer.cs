@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 
@@ -12,7 +11,6 @@ namespace StoreModels
         private string _lastName;
         private string _streetAddress;
         private string _email;
-        //private string _orders;
            
         public int CustomerId { get; set; }
         public string FirstName 
@@ -59,17 +57,14 @@ namespace StoreModels
        
         public string Email 
         { get { return _email; }
-            set 
+            set
             {
-                if (string.IsNullOrEmpty(value))
-                {       
-                    throw new Exception
-                    (
-                        "   Email cannot be left empty.     "
-                    );
+                if (!Regex.IsMatch(value, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
+                {
+                    throw new Exception("Invalid email address!");
                 }
-                _email = value;    
-            } 
+                _email = value;
+            }
         }
         
             

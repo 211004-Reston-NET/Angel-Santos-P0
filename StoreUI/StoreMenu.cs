@@ -15,7 +15,7 @@ namespace StoreUI
         }
         
         
-
+        
         
         public void Menu()
 
@@ -26,27 +26,21 @@ namespace StoreUI
             Console.WriteLine("[3] -WIP- Checkout");
             Console.WriteLine("[0] - Go to MainMenu");
         }
-
+        
         public MenuType UserChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
                 case "1":
-               
-                List<Product> listOfProduct = _storeBL.GetAllProduct();
-                foreach (Product prod in listOfProduct)
-                    {
-                    Console.WriteLine("====================");
-                    Console.WriteLine(prod);
-                    Console.WriteLine("====================");
-                    }
+                _storeBL.PrintAllProducts();
+                
                 Console.WriteLine("====================");
                 Console.WriteLine("Press Enter to return to Store Menu options.");
                 Console.ReadLine();
                 return MenuType.StoreMenu;
                 case "2": 
-                    //return MenuType.AddOrder; 
+                    return MenuType.AddPurchaseOrder; 
                 case "3":
                     return MenuType.StoreMenu;
                 case "0":

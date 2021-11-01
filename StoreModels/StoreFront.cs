@@ -5,7 +5,6 @@ namespace StoreModels
 {
     public class StoreFront
     {   
-        //private int _storeID;
         private string _name;
         private string _streetAddress;
         private string _city;

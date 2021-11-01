@@ -19,7 +19,7 @@ namespace StoreDL
             (
                 new Entity.Product()
                 {
-                    Name = p_product.Name,
+                    ItemName = p_product.ItemName,
                     Category = p_product.Category,
                     Price = p_product.Price,
                     Description = p_product.Description 
@@ -55,6 +55,25 @@ namespace StoreDL
             return p_customer;
         }
 
+        public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
+        {
+            _context.PurchaseOrders.Add
+            (
+                new Entity.PurchaseOrder()
+                {
+                    OrderId = p_order.OrderId,
+                    LocationId = p_order.LocationId,
+                    CustomerId = p_order.CustomerId,
+                    ItemName = p_order.ItemName,
+                    TotalPrice = p_order.Price
+                }
+            );
+
+            //Save changes to DB
+            _context.SaveChanges();
+            return p_order;
+        }
+
         public List<Model.Customer> GetAllCustomer()
         {
             return _context.Customers.Select(cust => 
@@ -77,7 +96,7 @@ namespace StoreDL
                 new Model.Product()
                 {
                     ProductId = prod.ProductId,
-                    Name = prod.Name,
+                    ItemName = prod.ItemName,
                     Category = prod.Category,
                     Price = prod.Price,
                     Description = prod.Description

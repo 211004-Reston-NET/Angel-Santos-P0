@@ -56,17 +56,40 @@ namespace StoreDL
             return p_customer;
         }
 
-        public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
-        {   /*  //Need to Select From Line_Item Table a Product_Id 
-                // Specified by the User.
-                // That Product_Id (Along with Product Name and Price will be stored
-                // Into the PurchaseOrder Table ..like a Receipt of the customer order.
-                // Query the database for the row to be updated.
+        /*  // Need to Select From Line_Item Table a Product_Id 
+            // Specified by the User.
+            // That Product_Id (Along with Product Name and Price will be stored
+            // Into the PurchaseOrder Table ..like a Receipt of the customer order.
+            // Query the database for the row to be updated.
+                
                 var query = 
                 from item in db.Line_Item
                 where item.product_id == ""MenuType UserChoice()"" // In IMENU
                 select item;
+
+                // Execute the query, and change the column values
+                // you want to change.
+                foreach (Order ord in query)
+                {
+                    ord.ShipName = "Mariner";
+                    ord.ShipVia = 2;
+                    // Insert any additional changes to column values.
+                }
+
+                // Submit the changes to the database.
+                try
+                {
+                    db.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    // Provide for exceptions.
+                }
             */
+
+        public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
+        {   
             _context.PurchaseOrders.Add
             (
                 new Entity.PurchaseOrder()

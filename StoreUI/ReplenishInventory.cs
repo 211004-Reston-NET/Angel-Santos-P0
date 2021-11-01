@@ -1,50 +1,39 @@
+/*
 using System;
 using StoreBL;
-using Microsoft.Data.SqlClient;
-
+using StoreModels;
 
 namespace StoreUI
 {
-    public class StoreMenu : IMenu
+    public class ReplenishInventory : IMenu
     {
+
+        //PurchaseOrder - Entity
+        private static LineItem _inventory = new LineItem();
         private IStoreBL _storeBL;
-
-        public StoreMenu(IStoreBL p_storeBL)
+         
+        public ReplenishInventory(IStoreBL p_storeBL)
         {
-             _storeBL = p_storeBL;
+            _storeBL = p_storeBL;
         }
-        
-        
-        
-        
-        public void Menu()
 
-/// Reads into Main Menu. Change this Interface to Products after Main Menu has Admin. 
-        {   
-            Console.WriteLine("[1] Browse our cyberware!");
-            Console.WriteLine("[2] -WIP- Place an item to your cart.");
-            Console.WriteLine("[3] -WIP- Checkout");
-            Console.WriteLine("[4] Replenish inventory by 5 - ItemId:1 ");
-            Console.WriteLine("[0] - Go to MainMenu");
+        public void Menu()
+        {
+            Console.WriteLine("-- Replenish Inventory --"
+            Console.WriteLine("[1] - List All Products");
+            Console.WriteLine("[2] - Replenish Inventory by 5 - ItemId 001");
+            Console.WriteLine("[0] - Go Back");
         }
-        
+
         public MenuType UserChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
                 case "1":
-                _storeBL.PrintAllProducts();
-                
-                Console.WriteLine("====================");
-                Console.WriteLine("Press Enter to return to Store Menu options.");
-                Console.ReadLine();
-                return MenuType.StoreMenu;
-                case "2": 
-                    return MenuType.AddPurchaseOrder; 
-                case "3":
-                    return MenuType.StoreMenu;
-                case "4":
+                    _storeBL.PrintAllProducts();
+
+                case "2":
                     try 
                     { 
                         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
@@ -55,7 +44,7 @@ namespace StoreUI
 
                         using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                         {
-                            String sql = "UPDATE Line_Item SET inventory = inventory + 5 WHERE product_id = 1";
+                            String sql = "UPDATE Line_Item SET Inventory = Inventory + 5 WHERE product_id = 001";
 
                             using (SqlCommand command = new SqlCommand(sql, connection))
                             {
@@ -77,8 +66,9 @@ namespace StoreUI
                     Console.ReadLine();
                     return MenuType.StoreMenu;
 
+               
                 case "0":
-                    return MenuType.MainMenu;
+                    return MenuType.StoreMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
@@ -87,6 +77,5 @@ namespace StoreUI
             }
         }
     }
-
-    
 }
+*/

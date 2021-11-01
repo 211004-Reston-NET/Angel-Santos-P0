@@ -25,6 +25,87 @@ namespace StoreBL
             return 0;
         }
 
+        //public void ReplenishInventory()
+        /* public static LineItem _replenishInventory = new LineItem();
+        {
+            try 
+            { 
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "revservp0.database.windows.net"; 
+                builder.UserID = "AngelS12";            
+                builder.Password = "Okaypassword123";     
+                builder.InitialCatalog = "DBp0";
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    String sql = "UPDATE Line_Item SET Inventory = Inventory + 1 WHERE product_id = 001"
+                    //String sql = "UPDATE Line_Item SET Inventory = Inventory + _replenishInventory"
+                    //String sql = "SELECT p.item_name, p.Price, li.product_id, li.inventory FROM Product p inner join Line_Item li on p.product_id = li.product_id";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine(reader.GetInt32(0));
+                            }
+                        }
+                    }                    
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            Console.ReadLine();
+        }
+
+        */
+        /*
+        public void PrintAllProducts()
+        {
+            List<Product> listOfProduct = GetAllProducts();
+                foreach (Product prod in listOfProduct)
+                    {
+                    Console.WriteLine("====================");
+                    Console.WriteLine(prod);
+                    Console.WriteLine("====================");
+                    }
+        }
+                // Need to Select From Line_Item Table a Product_Id 
+                // Specified by the User.
+                // That Product_Id (Along with Product Name and Price will be stored
+                // Into the PurchaseOrder Table ..like a Receipt of the customer order.
+                // Query the database for the row to be updated.
+                
+                var query = 
+                from item in db.Line_Item
+                where item.product_id == ""MenuType UserChoice()"" // In IMENU
+                select item;
+
+                // Execute the query, and change the column values
+                // you want to change.
+                foreach (Order ord in query)
+                {
+                    ord.ShipName = "Mariner";
+                    ord.ShipVia = 2;
+                    // Insert any additional changes to column values.
+                }
+
+                // Submit the changes to the database.
+                try
+                {
+                    db.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    // Provide for exceptions.
+                }
+            */
+
         public void PrintAllProducts()
         {
             List<Product> listOfProduct = GetAllProducts();

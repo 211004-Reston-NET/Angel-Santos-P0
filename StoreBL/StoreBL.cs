@@ -27,7 +27,7 @@ namespace StoreBL
 
         public void PrintAllProducts()
         {
-            List<Product> listOfProduct = GetAllProduct();
+            List<Product> listOfProduct = GetAllProducts();
                 foreach (Product prod in listOfProduct)
                     {
                     Console.WriteLine("====================");
@@ -55,7 +55,7 @@ namespace StoreBL
             return _repo.AddPurchaseOrder(p_order);
             }
 
-        public List<StoreFront> GetAllStore()
+        public List<StoreFront> GetAllStores()
         {
            
             List<StoreFront> listOfStore = _repo.GetAllStore();
@@ -71,7 +71,7 @@ namespace StoreBL
             List<StoreFront> listOfStore = _repo.GetAllStore();
             return listOfStore.Where(store => store.StoreName.ToLower().Contains(p_name.ToLower())).ToList();
         }
-        public List<Customer> GetAllCustomer()
+        public List<Customer> GetAllCustomers()
         {
             
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
@@ -88,7 +88,7 @@ namespace StoreBL
             List<Customer> listOfCustomer = _repo.GetAllCustomer();
             return listOfCustomer.Where(cust => cust.FirstName.ToLower().Contains(p_customerfname.ToLower())).ToList();
         }        
-        public List<Product> GetAllProduct()
+        public List<Product> GetAllProducts()
         {
             
             List<Product> listOfProduct = _repo.GetAllProduct();

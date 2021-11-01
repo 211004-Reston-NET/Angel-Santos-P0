@@ -17,7 +17,7 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine("List of Customers");
-            List<Customer> listOfCustomer = _storeBL.GetAllCustomer();
+            List<Customer> listOfCustomer = _storeBL.GetAllCustomers();
 
             foreach (Customer cust in listOfCustomer)
             {

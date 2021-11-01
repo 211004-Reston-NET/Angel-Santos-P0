@@ -17,7 +17,7 @@ namespace StoreUI
         public void Menu()
         {
             Console.WriteLine("List of Stores");
-            List<StoreFront> listOfStore = _storeBL.GetAllStore();
+            List<StoreFront> listOfStore = _storeBL.GetAllStores();
 
             foreach (StoreFront store in listOfStore)
             {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entity = StoreDL.Entities;
@@ -56,7 +57,16 @@ namespace StoreDL
         }
 
         public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
-        {
+        {   /*  //Need to Select From Line_Item Table a Product_Id 
+                // Specified by the User.
+                // That Product_Id (Along with Product Name and Price will be stored
+                // Into the PurchaseOrder Table ..like a Receipt of the customer order.
+                // Query the database for the row to be updated.
+                var query = 
+                from item in db.Line_Item
+                where item.product_id == ""MenuType UserChoice()"" // In IMENU
+                select item;
+            */
             _context.PurchaseOrders.Add
             (
                 new Entity.PurchaseOrder()
@@ -91,6 +101,7 @@ namespace StoreDL
 
         public List<Model.Product> GetAllProduct()
         {
+            
             //1. Method Syntax - LINQ
             return _context.Products.Select(prod => 
                 new Model.Product()

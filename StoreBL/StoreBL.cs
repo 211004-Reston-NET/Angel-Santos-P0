@@ -116,6 +116,16 @@ namespace StoreBL
                     Console.WriteLine("====================");
                     }
         }
+
+        public LineItem ReplenishLineById(LineItem p_lineItem, int p_addQuantity)
+        {
+            {
+                p_lineItem.Inventory += p_addQuantity;
+            }
+            return _repo.ReplenishLineById(p_lineItem);
+        }
+
+
         public StoreFront AddStore(StoreFront p_store)
         {
             return _repo.AddStore(p_store);

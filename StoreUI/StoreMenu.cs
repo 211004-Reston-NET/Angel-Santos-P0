@@ -1,6 +1,9 @@
 using System;
 using StoreBL;
+using System.Linq;
+using Entity = StoreDL.Entities;
 using Microsoft.Data.SqlClient;
+
 
 
 namespace StoreUI
@@ -8,11 +11,12 @@ namespace StoreUI
     public class StoreMenu : IMenu
     {
         private IStoreBL _storeBL;
-
         public StoreMenu(IStoreBL p_storeBL)
         {
              _storeBL = p_storeBL;
         }
+         
+       
         
         
         
@@ -24,7 +28,8 @@ namespace StoreUI
             Console.WriteLine("[1] Browse our cyberware!");
             Console.WriteLine("[2] -WIP- Place an item to your cart.");
             Console.WriteLine("[3] -WIP- Checkout");
-            Console.WriteLine("[4] Replenish inventory by 5 - ItemId:1 ");
+            Console.WriteLine("[4] Replenish inventory ");
+            //by 5 - ItemId:1 ");
             Console.WriteLine("[0] - Go to MainMenu");
         }
         
@@ -47,36 +52,13 @@ namespace StoreUI
                 case "4":
                     try 
                     { 
-                        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                        builder.DataSource = "revservp0.database.windows.net"; 
-                        builder.UserID = "AngelS12";            
-                        builder.Password = "Okaypassword123";     
-                        builder.InitialCatalog = "DBp0";
-
-                        using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                        {
-                            String sql = "UPDATE Line_Item SET inventory = inventory + 5 WHERE product_id = 1";
-
-                            using (SqlCommand command = new SqlCommand(sql, connection))
-                            {
-                                connection.Open();
-                                using (SqlDataReader reader = command.ExecuteReader())
-                                {
-                                    while (reader.Read())
-                                    {
-                                        Console.WriteLine(reader.GetInt32(0));
-                                    }
-                                }
-                            }                    
-                        }
+                    
                     }
-                    catch (SqlException e)
+                    catch (Exception)
                     {
-                        Console.WriteLine(e.ToString());
-                    }
-                    Console.ReadLine();
-                    return MenuType.StoreMenu;
 
+                    }
+                    return MenuType.StoreMenu;
                 case "0":
                     return MenuType.MainMenu;
                 default:
@@ -87,6 +69,4 @@ namespace StoreUI
             }
         }
     }
-
-    
 }

@@ -14,6 +14,5 @@ namespace StoreDL.Entities
         public string Description { get; set; }
 
         public virtual LineItem LineItem { get; set; }
-        public virtual PurchaseOrder PurchaseOrder { get; set; }
     }
 }

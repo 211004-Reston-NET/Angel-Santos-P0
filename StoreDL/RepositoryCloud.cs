@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using Entity = StoreDL.Entities;
@@ -87,6 +87,27 @@ namespace StoreDL
                     // Provide for exceptions.
                 }
             */
+
+        
+        
+
+        public Model.LineItem ReplenishLineById(Model.LineItem p_lineItem)
+        {
+            //String sql = "Update Line_Item Set inventory = inventory + 1 WHERE product_id = 1";
+            _context.LineItems.Update
+            (   
+                new Entity.LineItem()
+                {
+                ProductId = p_lineItem.ProductId,
+                ItemName = p_lineItem.ItemName,
+                Inventory = p_lineItem.Inventory,
+                Price = p_lineItem.Price
+                }
+            );
+  
+            _context.SaveChanges();
+            return p_lineItem;
+        }
 
         public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
         {   

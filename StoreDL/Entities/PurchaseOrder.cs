@@ -15,6 +15,5 @@ namespace StoreDL.Entities
 
         public virtual Customer Customer { get; set; }
         public virtual StoreFront Location { get; set; }
-        public virtual Product Order { get; set; }
     }
 }

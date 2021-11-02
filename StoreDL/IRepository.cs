@@ -13,6 +13,7 @@ namespace StoreDL
         Product AddProduct(Product p_product);
         PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);
         List<Product> GetAllProduct();
+        LineItem ReplenishLineById(LineItem p_lineItem);
         
         
     }

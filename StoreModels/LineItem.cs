@@ -2,7 +2,7 @@ namespace StoreModels
 {
     public class LineItem
     {   
-        public int ProductID    { get; set; }
+        public int ProductId    { get; set; }
         public int LocationId   { get; set; }
         public string ItemName { get; set; }
         public int Inventory    { get; set; }

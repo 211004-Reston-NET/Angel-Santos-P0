@@ -59,7 +59,7 @@ namespace StoreDL.Entities
                 entity.HasKey(e => e.ProductId)
                     .HasName("PK__Line_Ite__47027DF5B639D44D");
 
-                entity.ToTable("Line_Items");
+                entity.ToTable("Line_Item");
 
                 entity.Property(e => e.ProductId)
                     .ValueGeneratedNever()
@@ -72,16 +72,9 @@ namespace StoreDL.Entities
                     .IsUnicode(false)
                     .HasColumnName("item_name");
 
-                entity.Property(e => e.LocationId).HasColumnName("location_id");
-
                 entity.Property(e => e.Price)
                     .HasColumnType("decimal(18, 0)")
                     .HasColumnName("price");
-
-                entity.HasOne(d => d.Location)
-                    .WithMany(p => p.LineItems)
-                    .HasForeignKey(d => d.LocationId)
-                    .HasConstraintName("FK__Line_Item__locat__75A278F5");
 
                 entity.HasOne(d => d.Product)
                     .WithOne(p => p.LineItem)
@@ -123,9 +116,7 @@ namespace StoreDL.Entities
 
                 entity.ToTable("Purchase_Order");
 
-                entity.Property(e => e.OrderId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("order_id");
+                entity.Property(e => e.OrderId).HasColumnName("order_id");
 
                 entity.Property(e => e.CustomerId).HasColumnName("customer_id");
 
@@ -149,12 +140,6 @@ namespace StoreDL.Entities
                     .WithMany(p => p.PurchaseOrders)
                     .HasForeignKey(d => d.LocationId)
                     .HasConstraintName("FK__Purchase___locat__6D0D32F4");
-
-                entity.HasOne(d => d.Order)
-                    .WithOne(p => p.PurchaseOrder)
-                    .HasForeignKey<PurchaseOrder>(d => d.OrderId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Purchase___order__70DDC3D8");
             });
 
             modelBuilder.Entity<StoreFront>(entity =>

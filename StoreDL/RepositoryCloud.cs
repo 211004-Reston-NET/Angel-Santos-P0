@@ -66,7 +66,8 @@ namespace StoreDL
                 OrderId = p_lin.OrderId,
                 Inventory = p_lin.Inventory,
                 };
-  
+
+            _context.LineItems.Update(linUpdated);
             _context.SaveChanges();
             return p_lin;
         }

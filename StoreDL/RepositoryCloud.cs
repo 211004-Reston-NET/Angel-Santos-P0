@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Entity = StoreDL.Entities;
 using Model = StoreModels;
 
@@ -56,60 +57,46 @@ namespace StoreDL
             return p_customer;
         }
 
-        /*  // Need to Select From Line_Item Table a Product_Id 
-            // Specified by the User.
-            // That Product_Id (Along with Product Name and Price will be stored
-            // Into the PurchaseOrder Table ..like a Receipt of the customer order.
-            // Query the database for the row to be updated.
-                
-                var query = 
-                from item in db.Line_Item
-                where item.product_id == ""MenuType UserChoice()"" // In IMENU
-                select item;
-
-                // Execute the query, and change the column values
-                // you want to change.
-                foreach (Order ord in query)
-                {
-                    ord.ShipName = "Mariner";
-                    ord.ShipVia = 2;
-                    // Insert any additional changes to column values.
-                }
-
-                // Submit the changes to the database.
-                try
-                {
-                    db.SubmitChanges();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    // Provide for exceptions.
-                }
-            */
-
-        
         
 
         public Model.LineItem ReplenishLineById(Model.LineItem p_lineItem)
         {
-            //String sql = "Update Line_Item Set inventory = inventory + 1 WHERE product_id = 1";
-            _context.LineItems.Update
-            (   
-                new Entity.LineItem()
+           Entity.LineItem linUpdated = new Entity.LineItem()
                 {
-                ProductId = p_lineItem.ProductId,
-                ItemName = p_lineItem.ItemName,
+                ItemId = p_lineItem.ItemId,
                 Inventory = p_lineItem.Inventory,
-                Price = p_lineItem.Price
                 }
-            );
+            ;
   
             _context.SaveChanges();
             return p_lineItem;
         }
 
-        public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
+        public Model.LineItem GetItemById(int p_id)
+        {
+            // This Selects the Table ie. Database Entity 'Product'
+            // Specifies 'prodToFind, parameter or temporary variable
+            // Assigns it to _context which is our field(private) otherwise what I  
+            // call a 'pointer' that stores and has an Accessor to bar data from user
+            //  -> Products is our getter-setter it is allowed access to our data
+            // It will get THEN set that data within this Method. 
+            // NOTE: Some getters and setters can have Methods
+            // Next is Select
+            // 
+            Entity.LineItem linFound = _context.LineItems
+                                        .AsNoTracking()
+                                        .FirstOrDefault(lin => lin.ItemId == p_id);
+            
+            return new Model.LineItem()
+                {
+                    ItemId = linFound.ItemId,
+                    Inventory = (int)linFound.Inventory,              
+                };
+
+        }
+       
+
+        /*public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
         {   
             _context.PurchaseOrders.Add
             (
@@ -127,7 +114,7 @@ namespace StoreDL
             _context.SaveChanges();
             return p_order;
         }
-
+*/
         public List<Model.Customer> GetAllCustomer()
         {
             return _context.Customers.Select(cust => 
@@ -153,7 +140,7 @@ namespace StoreDL
                     ProductId = prod.ProductId,
                     ItemName = prod.ItemName,
                     Category = prod.Category,
-                    Price = prod.Price,
+                    Price = (decimal)prod.Price,
                     Description = prod.Description
                     
                 }
@@ -194,3 +181,11 @@ namespace StoreDL
         }
     }
 }
+
+ /*
+        public List<Product> GetProductId(int p_id)
+        {
+            List<Product> listOfProduct = _repo.GetAllProduct();
+            return listOfProduct.Where(prod => prod.ProductIdContains(p_id)).ToList();
+        }
+        */

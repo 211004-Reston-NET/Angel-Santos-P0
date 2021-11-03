@@ -11,10 +11,9 @@ namespace StoreDL
         Customer CustomerSignUp(Customer p_customer);
         List<Customer> GetAllCustomer();
         Product AddProduct(Product p_product);
-        PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);
+        //PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);
         List<Product> GetAllProduct();
-        LineItem ReplenishLineById(LineItem p_lineItem);
-        
-        
+        LineItem ReplenishLineById(LineItem p_lin);
+        LineItem GetItemById(int p_id);
     }
 }

@@ -56,29 +56,20 @@ namespace StoreDL.Entities
 
             modelBuilder.Entity<LineItem>(entity =>
             {
-                entity.HasKey(e => e.ProductId)
+                entity.HasKey(e => e.ItemId)
                     .HasName("PK__Line_Ite__47027DF5B639D44D");
 
                 entity.ToTable("Line_Item");
 
-                entity.Property(e => e.ProductId)
+                entity.Property(e => e.ItemId)
                     .ValueGeneratedNever()
-                    .HasColumnName("product_id");
+                    .HasColumnName("item_id");
 
                 entity.Property(e => e.Inventory).HasColumnName("inventory");
 
-                entity.Property(e => e.ItemName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("item_name");
-
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(18, 0)")
-                    .HasColumnName("price");
-
-                entity.HasOne(d => d.Product)
+                entity.HasOne(d => d.Item)
                     .WithOne(p => p.LineItem)
-                    .HasForeignKey<LineItem>(d => d.ProductId)
+                    .HasForeignKey<LineItem>(d => d.ItemId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Line_Item__produ__72C60C4A");
             });
@@ -107,6 +98,8 @@ namespace StoreDL.Entities
                 entity.Property(e => e.Price)
                     .HasColumnType("decimal(18, 0)")
                     .HasColumnName("price");
+
+                entity.Property(e => e.StoreLocation).HasColumnName("store_location");
             });
 
             modelBuilder.Entity<PurchaseOrder>(entity =>

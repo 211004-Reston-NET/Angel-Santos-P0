@@ -11,10 +11,12 @@ namespace StoreBL
         List<Customer> GetAllCustomers();
         Customer CustomerSignUp(Customer p_customer);
         Product AddProduct(Product p_product);
-        PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);
+        //PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);
         List<Product> GetAllProducts();
         List<Product> GetProductName(string p_name);
         List<Customer> GetCustomerName(string p_name);
         List<StoreFront> GetStoreName(string p_name);
+        LineItem GetItemById(int p_id);
+        LineItem ReplenishLineById(LineItem p_lin, int p_howMuchAdded);
     }
 }

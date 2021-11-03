@@ -25,86 +25,7 @@ namespace StoreBL
             return 0;
         }
 
-        //public void ReplenishInventory()
-        /* public static LineItem _replenishInventory = new LineItem();
-        {
-            try 
-            { 
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "revservp0.database.windows.net"; 
-                builder.UserID = "AngelS12";            
-                builder.Password = "Okaypassword123";     
-                builder.InitialCatalog = "DBp0";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    String sql = "UPDATE Line_Item SET Inventory = Inventory + 1 WHERE product_id = 001"
-                    //String sql = "UPDATE Line_Item SET Inventory = Inventory + _replenishInventory"
-                    //String sql = "SELECT p.item_name, p.Price, li.product_id, li.inventory FROM Product p inner join Line_Item li on p.product_id = li.product_id";
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Console.WriteLine(reader.GetInt32(0));
-                            }
-                        }
-                    }                    
-                }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            Console.ReadLine();
-        }
-
-        */
-        /*
-        public void PrintAllProducts()
-        {
-            List<Product> listOfProduct = GetAllProducts();
-                foreach (Product prod in listOfProduct)
-                    {
-                    Console.WriteLine("====================");
-                    Console.WriteLine(prod);
-                    Console.WriteLine("====================");
-                    }
-        }
-                // Need to Select From Line_Item Table a Product_Id 
-                // Specified by the User.
-                // That Product_Id (Along with Product Name and Price will be stored
-                // Into the PurchaseOrder Table ..like a Receipt of the customer order.
-                // Query the database for the row to be updated.
-                
-                var query = 
-                from item in db.Line_Item
-                where item.product_id == ""MenuType UserChoice()"" // In IMENU
-                select item;
-
-                // Execute the query, and change the column values
-                // you want to change.
-                foreach (Order ord in query)
-                {
-                    ord.ShipName = "Mariner";
-                    ord.ShipVia = 2;
-                    // Insert any additional changes to column values.
-                }
-
-                // Submit the changes to the database.
-                try
-                {
-                    db.SubmitChanges();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    // Provide for exceptions.
-                }
-            */
+        
 
         public void PrintAllProducts()
         {
@@ -115,17 +36,11 @@ namespace StoreBL
                     Console.WriteLine(prod);
                     Console.WriteLine("====================");
                     }
-        }
-
-        public LineItem ReplenishLineById(LineItem p_lineItem, int p_addQuantity)
-        {
-            {
-                p_lineItem.Inventory += p_addQuantity;
-            }
-            return _repo.ReplenishLineById(p_lineItem);
+                    Console.WriteLine("====================");
         }
 
 
+        //Add Methods
         public StoreFront AddStore(StoreFront p_store)
         {
             return _repo.AddStore(p_store);
@@ -136,15 +51,17 @@ namespace StoreBL
             return _repo.AddProduct(p_product);
         }
 
+        //AKA Add Customer 
         public Customer CustomerSignUp(Customer p_customer)
             {
             return _repo.CustomerSignUp(p_customer);
             }
         
-        public PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order)
+        /*public PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order)
             {
             return _repo.AddPurchaseOrder(p_order);
             }
+            */
 
         public List<StoreFront> GetAllStores()
         {
@@ -196,6 +113,20 @@ namespace StoreBL
             List<Product> listOfProduct = _repo.GetAllProduct();
             return listOfProduct.Where(prod => prod.ItemName.ToLower().Contains(p_name.ToLower())).ToList();
         }
+
+        public LineItem GetItemById(int p_id)
+        {
+           return _repo.GetItemById(p_id);
+        }
+        public LineItem ReplenishLineById(LineItem p_lin, int p_howMuchAdded)
+        {
+            p_lin.Inventory += p_howMuchAdded;
+
+            return _repo.ReplenishLineById(p_lin);
+        }
+
+
+
 /*        public List<Product> GetProductCategory(string p_category)
         {
             List<Product> listOfProduct = _repo.GetAllProduct();

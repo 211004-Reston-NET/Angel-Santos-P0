@@ -8,6 +8,8 @@ namespace StoreUI
 {
     public class StoreMenu : IMenu
     {
+
+        
         private IStoreBL _storeBL;
         public StoreMenu(IStoreBL p_storeBL)
         {
@@ -43,26 +45,7 @@ namespace StoreUI
                 return MenuType.StoreMenu;
                 //case "2": 
                    // return MenuType.AddPurchaseOrder; 
-                case "2":
-                    Console.WriteLine("Enter the Product Id to replenish inventory. ");
-                    try
-                    {
-                        int linId = Int32.Parse(Console.ReadLine());
-                        LineItem linFound = _storeBL.GetItemById(linId);
-
-                        Console.WriteLine("Input how much you want to add to inventory.");
-                        int addedInventory = Int32.Parse(Console.ReadLine());
-                        _storeBL.ReplenishLineById(linFound, addedInventory);
-                    }
-                    catch (System.FormatException)
-                    {
-                        Console.WriteLine("Please input a number and not a character!");
-                        Console.WriteLine("Press Enter to continue");
-                        Console.ReadLine();
-                        return MenuType.StoreMenu;
-                    }
-
-                    return MenuType.StoreMenu;
+                
                
                 case "0":
                     return MenuType.MainMenu;

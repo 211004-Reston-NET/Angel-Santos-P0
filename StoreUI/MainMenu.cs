@@ -21,7 +21,8 @@ namespace StoreUI
             Console.WriteLine("[2] - List Store Locations.");
             Console.WriteLine("[3] - Search Store Locations.");
             Console.WriteLine("[4] - Enter our store page.");
-            Console.WriteLine("[5] - Exit");
+            Console.WriteLine("[5] - Inventory Menu.");
+            Console.WriteLine("[6] - Exit");
         }
 
         public MenuType UserChoice()
@@ -40,6 +41,8 @@ namespace StoreUI
                 case "4":
                     return MenuType.StoreMenu;
                 case "5":
+                    return MenuType.InventoryMenu;
+                case "6":
                     return MenuType.Exit;
                 default:
                     Console.WriteLine("Please input a valid response!");

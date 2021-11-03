@@ -5,6 +5,7 @@ namespace StoreUI
     {
         MainMenu,
         StoreMenu,
+        InventoryMenu,
         ListStore,
         AddStore,
         AddPurchaseOrder,

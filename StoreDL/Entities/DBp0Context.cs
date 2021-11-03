@@ -56,22 +56,14 @@ namespace StoreDL.Entities
 
             modelBuilder.Entity<LineItem>(entity =>
             {
-                entity.HasKey(e => e.ItemId)
-                    .HasName("PK__Line_Ite__47027DF5B639D44D");
+                entity.HasKey(e => e.OrderId)
+                    .HasName("PK__LineItem__4659622933ED3862");
 
-                entity.ToTable("Line_Item");
+                entity.ToTable("LineItem");
 
-                entity.Property(e => e.ItemId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("item_id");
+                entity.Property(e => e.OrderId).HasColumnName("order_id");
 
                 entity.Property(e => e.Inventory).HasColumnName("inventory");
-
-                entity.HasOne(d => d.Item)
-                    .WithOne(p => p.LineItem)
-                    .HasForeignKey<LineItem>(d => d.ItemId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Line_Item__produ__72C60C4A");
             });
 
             modelBuilder.Entity<Product>(entity =>

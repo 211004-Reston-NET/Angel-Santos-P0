@@ -13,7 +13,5 @@ namespace StoreDL.Entities
         public decimal? Price { get; set; }
         public string Description { get; set; }
         public int? StoreLocation { get; set; }
-
-        public virtual LineItem LineItem { get; set; }
     }
 }

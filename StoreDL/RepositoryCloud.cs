@@ -59,30 +59,28 @@ namespace StoreDL
 
         
 
-        public Model.LineItem ReplenishLineById(Model.LineItem p_lineItem)
+        public Model.LineItem ReplenishLineById(Model.LineItem p_lin)
         {
            Entity.LineItem linUpdated = new Entity.LineItem()
                 {
-                ItemId = p_lineItem.ItemId,
-                Inventory = p_lineItem.Inventory,
-                }
-            ;
+                OrderId = p_lin.OrderId,
+                Inventory = p_lin.Inventory,
+                };
   
             _context.SaveChanges();
-            return p_lineItem;
+            return p_lin;
         }
  
         public Model.LineItem GetItemById(int p_id)
         {
-            Entity.LineItem linFound = _context.LineItems
-                                    .AsNoTracking()
-                                    .FirstOrDefault(lin => lin.ItemId == p_id);
+            Entity.LineItem linFound = _context.LineItems.AsNoTracking().FirstOrDefault(lin => lin.OrderId == p_id);
             
             return new Model.LineItem()
             {
-                ItemId = linFound.ItemId,
+                OrderId = linFound.OrderId,
                 Inventory = (int)linFound.Inventory              
             };
+            
         }
        
 

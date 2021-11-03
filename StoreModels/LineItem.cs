@@ -2,7 +2,7 @@ namespace StoreModels
 {
     public class LineItem
     {   
-        public int ItemId    { get; set; }
+        public int OrderId    { get; set; }
         //public int LocationId   { get; set; }
 
         public int Inventory    { get; set; }
@@ -10,7 +10,7 @@ namespace StoreModels
         
         public override string ToString()
         {
-            return $"ItemId: {ItemId}\nInventory:{Inventory}";
+            return $"OrderId: {OrderId}\nInventory:{Inventory}";
         }    
     }    
 }

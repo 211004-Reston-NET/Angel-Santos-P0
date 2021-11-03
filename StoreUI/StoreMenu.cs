@@ -44,12 +44,11 @@ namespace StoreUI
                 //case "2": 
                    // return MenuType.AddPurchaseOrder; 
                 case "2":
-                    _storeBL.PrintAllProducts();
-                    Console.WriteLine("Enter the Product Id and Replenish Inventory");
+                    Console.WriteLine("Enter the Product Id to replenish inventory. ");
                     try
                     {
-                        int itemId = Int32.Parse(Console.ReadLine());
-                        LineItem linFound = _storeBL.GetItemById(itemId);
+                        int linId = Int32.Parse(Console.ReadLine());
+                        LineItem linFound = _storeBL.GetItemById(linId);
 
                         Console.WriteLine("Input how much you want to add to inventory.");
                         int addedInventory = Int32.Parse(Console.ReadLine());

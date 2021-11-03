@@ -23,12 +23,12 @@ namespace StoreUI
         
         public void Menu()
 
-/// Reads into Main Menu. Change this Interface to Products after Main Menu has Admin. 
+ 
         {   
             Console.WriteLine("[1] Browse Product Selection");
-           // Future Implementation: Console.WriteLine("[2] Add a New Product.");
             Console.WriteLine("[2] Restock Inventory - Select ProductID and Input Amount. ");
             Console.WriteLine("[0] - Go to MainMenu");
+            // Future Implementation: Console.WriteLine("[2] Add a New Product.");
         }
         
         public MenuType UserChoice()
@@ -39,7 +39,6 @@ namespace StoreUI
                 case "1":
                 _storeBL.PrintAllProducts();
                 
-                Console.WriteLine("====================");
                 Console.WriteLine("====================");
                 Console.WriteLine("====================");
                 Console.WriteLine("Press Enter to return to Store Menu options.");

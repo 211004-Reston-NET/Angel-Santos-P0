@@ -56,16 +56,8 @@ namespace StoreModels
         }
        
         public string Email 
-        { get { return _email; }
-            set
-            {
-                if (!Regex.IsMatch(value, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
-                {
-                    throw new Exception("Invalid email address!");
-                }
-                _email = value;
-            }
-        }
+        { get ; set;}
+        
         
             
         public override string ToString()

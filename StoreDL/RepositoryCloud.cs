@@ -85,25 +85,20 @@ namespace StoreDL
         }
        
 
-        /*public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
-        {   
-            _context.PurchaseOrders.Add
-            (
-                new Entity.PurchaseOrder()
-                {
-                    OrderId = p_order.OrderId,
-                    LocationId = p_order.LocationId,
-                    CustomerId = p_order.CustomerId,
-                    ItemName = p_order.ItemName,
-                    TotalPrice = p_order.Price
-                }
-            );
 
-            //Save changes to DB
-            _context.SaveChanges();
-            return p_order;
+        public List<Model.LineItem> GetAllLineItemInventory(Model.Product p_prod)
+        {
+            return _context.LineItems
+                .Where(lin => lin.OrderId == p_prod.ProductId) //We find the LineItems that have matching prodId
+                .Select(lin => new Model.LineItem(){ //Convert it into Model.Review
+                  OrderId = lin.OrderId,
+                  Inventory = lin.Inventory
+                })
+                .ToList(); //Convert it into List
         }
-*/
+
+
+
         public List<Model.Customer> GetAllCustomer()
         {
             return _context.Customers.Select(cust => 
@@ -171,10 +166,31 @@ namespace StoreDL
     }
 }
 
- /*
+/*
         public List<Product> GetProductId(int p_id)
         {
             List<Product> listOfProduct = _repo.GetAllProduct();
             return listOfProduct.Where(prod => prod.ProductIdContains(p_id)).ToList();
         }
-        */
+
+*/
+/*    
+        public Model.PurchaseOrder AddPurchaseOrder(Model.PurchaseOrder p_order)
+        {   
+            _context.PurchaseOrders.Add
+            (
+                new Entity.PurchaseOrder()
+                {
+                    OrderId = p_order.OrderId,
+                    LocationId = p_order.LocationId,
+                    CustomerId = p_order.CustomerId,
+                    ItemName = p_order.ItemName,
+                    TotalPrice = p_order.Price
+                }
+            );
+
+            //Save changes to DB
+            _context.SaveChanges();
+            return p_order;
+        }
+*/

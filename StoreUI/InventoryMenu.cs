@@ -12,6 +12,7 @@ namespace StoreUI
 
         private IStoreBL _storeBL;
         private IInventoryBL _invBL;
+        
         public InventoryMenu(IStoreBL p_storeBL, IInventoryBL p_invBL)
         {
             this._storeBL = p_storeBL;
@@ -19,9 +20,9 @@ namespace StoreUI
         }
        public void Menu()
         {
-            Console.WriteLine("List of Products");
+            Console.WriteLine("--Inventory Menu--");
             
-            Console.WriteLine("[1] - List Line Items for Review");
+            Console.WriteLine("[1] - List Line Items ");
             Console.WriteLine("[2] - Select a LineItem(ID) to Replenish.");
             Console.WriteLine("[0] - Go Back");
         }
@@ -36,6 +37,7 @@ namespace StoreUI
                     return MenuType.MainMenu;
                 case "1":
                     _storeBL.PrintAllProducts();
+                     //List<LineItem> listOfLine = _storeBL.GetAllLineItemInventory();
                     Console.WriteLine("====================");
                     Console.WriteLine("Press Enter to return to Store Menu options.");
                     Console.ReadLine();

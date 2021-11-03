@@ -17,7 +17,6 @@ namespace StoreBL
         
         
 
-
         public void PrintAllProducts()
         {
             List<Product> listOfProduct = GetAllProducts();
@@ -29,6 +28,19 @@ namespace StoreBL
                     }
                     Console.WriteLine("====================");
         }
+
+        //public void PrintAllInventory()
+        /*{
+            List<LineItem> listOfLine = _storeBL.GetAllLineItemInventory(ShowRestaurant._findRestName);
+
+            foreach (LineItem lin in listOfLine)
+            {
+                Console.WriteLine("====================");
+                Console.WriteLine(lin);
+                Console.WriteLine("====================");
+            }
+        }
+        */
 
 
         //Add Methods
@@ -48,12 +60,11 @@ namespace StoreBL
             return _repo.CustomerSignUp(p_customer);
             }
         
-        /*public PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order)
-            {
-            return _repo.AddPurchaseOrder(p_order);
-            }
-            */
-
+        
+        public List<LineItem> GetAllLineItemInventory(Product p_prod)
+        {
+              return _repo.GetAllLineItemInventory(p_prod);
+        }
         public List<StoreFront> GetAllStores()
         {
            
@@ -105,11 +116,18 @@ namespace StoreBL
             return listOfProduct.Where(prod => prod.ItemName.ToLower().Contains(p_name.ToLower())).ToList();
         }
 
-     
+        List<LineItem> IStoreBL.GetAllLineItemInventory()
+        {
+            throw new NotImplementedException();
+        }
 
 
-
-/*        public List<Product> GetProductCategory(string p_category)
+        /*      
+        public PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order)
+        {
+            return _repo.AddPurchaseOrder(p_order);
+        }
+        public List<Product> GetProductCategory(string p_category)
         {
             List<Product> listOfProduct = _repo.GetAllProduct();
             return listOfProduct.Where(prod => prod.Category.ToLower().Contains(p_category.ToLower())).ToList();

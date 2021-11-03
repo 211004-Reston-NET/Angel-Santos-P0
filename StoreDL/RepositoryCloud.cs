@@ -71,28 +71,18 @@ namespace StoreDL
             _context.SaveChanges();
             return p_lineItem;
         }
-
+ 
         public Model.LineItem GetItemById(int p_id)
         {
-            // This Selects the Table ie. Database Entity 'Product'
-            // Specifies 'prodToFind, parameter or temporary variable
-            // Assigns it to _context which is our field(private) otherwise what I  
-            // call a 'pointer' that stores and has an Accessor to bar data from user
-            //  -> Products is our getter-setter it is allowed access to our data
-            // It will get THEN set that data within this Method. 
-            // NOTE: Some getters and setters can have Methods
-            // Next is Select
-            // 
             Entity.LineItem linFound = _context.LineItems
-                                        .AsNoTracking()
-                                        .FirstOrDefault(lin => lin.ItemId == p_id);
+                                    .AsNoTracking()
+                                    .FirstOrDefault(lin => lin.ItemId == p_id);
             
             return new Model.LineItem()
-                {
-                    ItemId = linFound.ItemId,
-                    Inventory = (int)linFound.Inventory,              
-                };
-
+            {
+                ItemId = linFound.ItemId,
+                Inventory = (int)linFound.Inventory              
+            };
         }
        
 

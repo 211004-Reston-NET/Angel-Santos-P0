@@ -21,7 +21,7 @@ namespace StoreUI
             Console.WriteLine("[2] - List Store Locations.");
             Console.WriteLine("[3] - Search Store Locations.");
             Console.WriteLine("[4] - Enter our store page.");
-            Console.WriteLine("[5] - Inventory Menu.");
+            //Console.WriteLine("[5] - Inventory Menu.");
             Console.WriteLine("[6] - Exit");
         }
 

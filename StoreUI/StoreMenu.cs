@@ -40,11 +40,13 @@ namespace StoreUI
                 _storeBL.PrintAllProducts();
                 
                 Console.WriteLine("====================");
+                Console.WriteLine("====================");
+                Console.WriteLine("====================");
                 Console.WriteLine("Press Enter to return to Store Menu options.");
                 Console.ReadLine();
                 return MenuType.StoreMenu;
-                //case "2": 
-                   // return MenuType.AddPurchaseOrder; 
+                case "2": 
+                   return MenuType.InventoryMenu; 
                 
                
                 case "0":

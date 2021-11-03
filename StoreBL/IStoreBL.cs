@@ -4,7 +4,7 @@ using StoreModels;
 namespace StoreBL
 {
     public interface IStoreBL
-    {   int ReadConsoleParser();
+    {   
         void PrintAllProducts();
         StoreFront AddStore(StoreFront p_store);
         List<StoreFront> GetAllStores();
@@ -16,7 +16,6 @@ namespace StoreBL
         List<Product> GetProductName(string p_name);
         List<Customer> GetCustomerName(string p_name);
         List<StoreFront> GetStoreName(string p_name);
-        LineItem GetItemById(int p_id);
-        LineItem ReplenishLineById(LineItem p_lin, int p_howMuchAdded);
+       
     }
 }

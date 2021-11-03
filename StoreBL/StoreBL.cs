@@ -15,17 +15,8 @@ namespace StoreBL
             _repo = p_repo;
         }
         
-        public int ReadConsoleParser()
-        {
-            if (int.TryParse(Console.ReadLine(), out int num))
-            {       
-                return num;
-            }
-            Console.WriteLine("   Must be an Integer  ");
-            return 0;
-        }
-
         
+
 
         public void PrintAllProducts()
         {
@@ -114,16 +105,7 @@ namespace StoreBL
             return listOfProduct.Where(prod => prod.ItemName.ToLower().Contains(p_name.ToLower())).ToList();
         }
 
-        public LineItem GetItemById(int p_id)
-        {
-           return _repo.GetItemById(p_id);
-        }
-        public LineItem ReplenishLineById(LineItem p_lin, int p_howMuchAdded)
-        {
-            p_lin.Inventory += p_howMuchAdded;
-
-            return _repo.ReplenishLineById(p_lin);
-        }
+     
 
 
 

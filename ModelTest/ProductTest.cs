@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using StoreModels;
 using Xunit;
 
@@ -29,9 +29,9 @@ namespace ModelTest
 
         [Theory]       
         [InlineData(678)] 
-        [InlineData(9999.99)] 
-        [InlineData(2389.89)]  
-        [InlineData(299.99)]
+        [InlineData(9999)] 
+        [InlineData(2389)]  
+        [InlineData(299)]
         
         
         public void FailIfInvalid(decimal p_input)
@@ -50,4 +50,4 @@ namespace ModelTest
     }
 }
 
-            
+            */

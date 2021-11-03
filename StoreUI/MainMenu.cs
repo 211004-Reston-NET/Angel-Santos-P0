@@ -16,7 +16,7 @@ namespace StoreUI
 +-+-+-+-+-+-+-+-+-+-+-+-+-+ +-+-+-+-+                                                                                  
 ";
             Console.WriteLine(title);
-            Console.WriteLine("Your GPU, CyberWare, and Cybernetic Peripherals Depot!\n Select an option from the Main Menu.");
+            Console.WriteLine("Your GPU, CyberWare, and Cybernetics Depot!\n Select an option from the Main Menu.");
             Console.WriteLine("[1] - Create an Account ");
             Console.WriteLine("[2] - List Store Locations.");
             Console.WriteLine("[3] - Search Store Locations.");

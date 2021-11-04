@@ -117,6 +117,8 @@ namespace StoreDL
                     .HasColumnName("total_price");
 
                 
+
+                
             });
 
             modelBuilder.Entity<StoreFront>(entity =>

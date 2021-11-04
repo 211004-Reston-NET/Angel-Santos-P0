@@ -116,15 +116,7 @@ namespace StoreDL
                     .HasColumnType("decimal(18, 0)")
                     .HasColumnName("total_price");
 
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.PurchaseOrders)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__Purchase___custo__73BA3083");
-
-                entity.HasOne(d => d.Location)
-                    .WithMany(p => p.PurchaseOrders)
-                    .HasForeignKey(d => d.LocationId)
-                    .HasConstraintName("FK__Purchase___locat__6D0D32F4");
+                
             });
 
             modelBuilder.Entity<StoreFront>(entity =>

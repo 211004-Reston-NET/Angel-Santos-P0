@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using StoreBL;
 using StoreDL;
-using StoreDL.Entities;
+
 
 
 namespace StoreUI

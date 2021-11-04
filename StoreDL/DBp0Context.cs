@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using StoreModels;
+
 
 #nullable disable
 
-namespace StoreDL.Entities
+namespace StoreDL
 {
     public partial class DBp0Context : DbContext
     {

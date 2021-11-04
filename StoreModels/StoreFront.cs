@@ -5,21 +5,21 @@ namespace StoreModels
 {
     public class StoreFront
     {   
-        private string _name;
+        private string _storeName;
         private string _streetAddress;
         private string _city;
         private string _state;
         public int StoreId { get; set; }
         public string StoreName 
         {
-            get { return _name; }
+            get { return _storeName; }
             set 
             {
                 if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
                 {       
                     throw new Exception("   State must contain only letters.    ");
                 }
-                _name = value;
+                _storeName = value;
             }
         }
         public string StreetAddress

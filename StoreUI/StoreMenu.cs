@@ -45,6 +45,7 @@ namespace StoreUI
                 Console.ReadLine();
                 return MenuType.StoreMenu;
                 case "2": 
+                    Console.Clear();
                    return MenuType.InventoryMenu; 
                 
                

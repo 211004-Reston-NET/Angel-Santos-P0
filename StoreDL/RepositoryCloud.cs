@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Entity = StoreDL.Entities;
 using Model = StoreModels;
 
 namespace StoreDL
@@ -10,16 +9,16 @@ namespace StoreDL
     public class RepositoryCloud : IRepository
     {
         //Depedency Injection
-        private Entity.DBp0Context _context;
-        public RepositoryCloud(Entity.DBp0Context p_context)
+        private StoreDL.DBp0Context _context;
+        public RepositoryCloud(StoreDL.DBp0Context p_context)
         {
             _context = p_context;
         }
-        public Model.Product AddProduct(Model.Product p_product)
+        public StoreModels.Product AddProduct(StoreModels.Product p_product)
         {
             _context.Products.Add
             (
-                new Entity.Product()
+                new Model.Product()
                 {
                     ItemName = p_product.ItemName,
                     Category = p_product.Category,
@@ -33,16 +32,16 @@ namespace StoreDL
             return p_product;
         }
 
-        public Model.StoreFront AddStore(Model.StoreFront p_store)
+        public StoreModels.StoreFront AddStore(StoreModels.StoreFront p_store)
         {
             throw new System.NotImplementedException();
         }
 
-        public Model.Customer CustomerSignUp(Model.Customer p_customer)
+        public StoreModels.Customer CustomerSignUp(StoreModels.Customer p_customer)
         {
             _context.Customers.Add
             (
-                new Entity.Customer()
+                new Model.Customer()
                 {
                     CustomerId = p_customer.CustomerId,
                     FirstName = p_customer.FirstName,
@@ -59,9 +58,9 @@ namespace StoreDL
 
         
 
-        public Model.LineItem ReplenishLineById(Model.LineItem p_lin)
+        public StoreModels.LineItem ReplenishLineById(StoreModels.LineItem p_lin)
         {
-           Entity.LineItem linUpdated = new Entity.LineItem()
+            StoreModels.LineItem linUpdated = new StoreModels.LineItem()
                 {
                 OrderId = p_lin.OrderId,
                 Inventory = p_lin.Inventory,
@@ -72,11 +71,11 @@ namespace StoreDL
             return p_lin;
         }
  
-        public Model.LineItem GetItemById(int p_id)
+        public StoreModels.LineItem GetItemById(int p_id)
         {
-            Entity.LineItem linFound = _context.LineItems.AsNoTracking().FirstOrDefault(lin => lin.OrderId == p_id);
+            Model.LineItem linFound = _context.LineItems.AsNoTracking().FirstOrDefault(lin => lin.OrderId == p_id);
             
-            return new Model.LineItem()
+            return new StoreModels.LineItem()
             {
                 OrderId = linFound.OrderId,
                 Inventory = (int)linFound.Inventory              
@@ -86,7 +85,7 @@ namespace StoreDL
        
 
 
-        public List<Model.LineItem> GetAllLineItemInventory(Model.Product p_prod)
+        public List<StoreModels.LineItem> GetAllLineItemInventory(StoreModels.Product p_prod)
         {
             return _context.LineItems
                 .Where(lin => lin.OrderId == p_prod.ProductId) //We find the LineItems that have matching prodId
@@ -99,7 +98,7 @@ namespace StoreDL
 
 
 
-        public List<Model.Customer> GetAllCustomer()
+        public List<StoreModels.Customer> GetAllCustomer()
         {
             return _context.Customers.Select(cust => 
                 new Model.Customer()
@@ -114,7 +113,7 @@ namespace StoreDL
             ).ToList();
         }
 
-        public List<Model.Product> GetAllProduct()
+        public List<StoreModels.Product> GetAllProduct()
         {
             
             //1. Method Syntax - LINQ
@@ -149,7 +148,7 @@ namespace StoreDL
             // return listOfProd;
         }
 
-        public List<Model.StoreFront> GetAllStore()
+        public List<StoreModels.StoreFront> GetAllStore()
         {
             return _context.StoreFronts.Select(store => 
                 new Model.StoreFront()

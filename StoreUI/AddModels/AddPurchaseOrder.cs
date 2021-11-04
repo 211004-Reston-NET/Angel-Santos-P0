@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using StoreBL;
 using StoreModels;
 
@@ -23,7 +23,7 @@ namespace StoreUI
             Console.WriteLine("Store Location ID: " + _order.LocationId);
             Console.WriteLine("Customer ID: " + _order.CustomerId);
             Console.WriteLine("Item Name: " + _order.ItemName);
-            Console.WriteLine("Price: " + _order.Price);
+            Console.WriteLine("Price: " + _order.TotalPrice);
             Console.WriteLine("[1] - Input Order ID");
             Console.WriteLine("[2] - Input Store Location ID");
             Console.WriteLine("[3] - Input Item Name");
@@ -38,7 +38,29 @@ namespace StoreUI
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
-            {
+            {   /*
+                    case "2":
+                    Console.WriteLine("Enter the Product Id to replenish inventory. ");
+                    try
+                    {
+                        int linId = Int32.Parse(Console.ReadLine());
+                        LineItem linFound = _invBL.GetItemById(linId);
+
+                        Console.WriteLine("Input how much you want to add to inventory.");
+                        int addedInventory = Int32.Parse(Console.ReadLine());
+                        _invBL.ReplenishLineById(linFound, addedInventory);
+                    }
+                    catch (System.FormatException)
+                    {
+                        Console.WriteLine("Please input a number and not a character!");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.InventoryMenu;
+                    }
+
+                    return MenuType.InventoryMenu;
+
+                */
                 case "1":
                     Console.WriteLine("Type in your Order ID.");
                     try
@@ -89,7 +111,7 @@ namespace StoreUI
                     Console.WriteLine("Type in the Total Price.");
                     try
                     {
-                    _order.Price = Int32.Parse(Console.ReadLine());
+                    _order.TotalPrice = Int32.Parse(Console.ReadLine());
                     }
                     catch (System.Exception)
                     {
@@ -105,7 +127,7 @@ namespace StoreUI
                 // through exception handling
                     try
                     {
-                         _storeBL.AddPurchaseOrder(_order);
+                         //_storeBL.AddPurchaseOrder(_order);
                     }
                     catch (System.Exception)
                     {
@@ -128,4 +150,3 @@ namespace StoreUI
         }
     }
 }
-*/

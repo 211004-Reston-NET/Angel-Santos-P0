@@ -31,14 +31,18 @@ namespace StoreUI
             switch (userChoice)
             {
                 case "1":
+                    
                     return MenuType.CustomerSignUp;
                 case "2":
+                    
                     return MenuType.ListStore;
                 case "3":
                     Console.WriteLine("Enter a name for the Store, you want to find");
                     _findStoreName = Console.ReadLine();
+                    
                     return MenuType.QueryStore;
                 case "4":
+                    
                     return MenuType.StoreMenu;
                 case "5":
                     return MenuType.InventoryMenu;

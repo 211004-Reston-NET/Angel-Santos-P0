@@ -63,7 +63,6 @@ namespace ModelTest
             // None of them returned an exception as the 'Act & Assert' method specified.
             // Their data was valid - so they are Valid Data
         }
-       
     }
 }
 

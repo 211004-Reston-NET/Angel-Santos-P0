@@ -33,11 +33,11 @@ namespace StoreModels
             } 
         }
 
-        public decimal Price { get; set; }
+        public decimal TotalPrice { get; set; }
 
          public override string ToString()
         {
-            return $"OrderId: {OrderId}\nLocationId: {LocationId}\nCustomerId: {CustomerId}\nItemName: {ItemName}\nPrice: {Price}";
+            return $"OrderId: {OrderId}\nLocationId: {LocationId}\nCustomerId: {CustomerId}\nItemName: {ItemName}\nPrice: {TotalPrice}";
         }
     }
 }

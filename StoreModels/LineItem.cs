@@ -3,7 +3,6 @@ namespace StoreModels
     public class LineItem
     {   
         public int OrderId    { get; set; }
-        //public int LocationId   { get; set; }
 
         public int Inventory    { get; set; }
     

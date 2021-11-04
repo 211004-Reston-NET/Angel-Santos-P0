@@ -22,7 +22,7 @@ namespace StoreUI
             while (repeat)
             {
                 //Clean terminal screen
-                //Console.Clear();
+                Console.Clear();
 
                 
                 page.Menu();

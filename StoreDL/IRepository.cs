@@ -10,9 +10,10 @@ namespace StoreDL
         List<Product> GetAllProduct();
         List<StoreFront> GetAllStore();
         List<LineItem> GetAllLineItemInventory(Product p_prod);
-        Customer CustomerSignUp(Customer p_customer);
+        Customer AddCustomer(Customer p_customer);
+        PurchaseOrder AddPurchase(PurchaseOrder p_purchase);
         Product AddProduct(Product p_product);
-        LineItem ReplenishLineById(LineItem p_lin);
+        LineItem ReplenishLine(LineItem p_lin);
         LineItem GetItemById(int p_id);
 
         //PurchaseOrder AddPurchaseOrder(PurchaseOrder p_order);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Model = StoreModels;
+using StoreModels;
 
 namespace StoreDL
 {
@@ -10,46 +10,24 @@ namespace StoreDL
     {
         //Depedency Injection
         private StoreDL.DBp0Context _context;
-        public RepositoryCloud(StoreDL.DBp0Context p_context)
+        public RepositoryCloud(DBp0Context p_context)
         {
             _context = p_context;
         }
-        public StoreModels.Product AddProduct(StoreModels.Product p_product)
+        public Product AddProduct(Product p_product)
         {
-            _context.Products.Add
-            (
-                new Model.Product()
-                {
-                    ItemName = p_product.ItemName,
-                    Category = p_product.Category,
-                    Price = p_product.Price,
-                    Description = p_product.Description 
-                }
-            );
+            _context.Products.Add(p_product);
 
             //Save changes to DB
             _context.SaveChanges();
+
             return p_product;
         }
 
-        public StoreModels.StoreFront AddStore(StoreModels.StoreFront p_store)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public StoreModels.Customer CustomerSignUp(StoreModels.Customer p_customer)
+        public Customer AddCustomer(Customer p_customer)
         {
-            _context.Customers.Add
-            (
-                new Model.Customer()
-                {
-                    CustomerId = p_customer.CustomerId,
-                    FirstName = p_customer.FirstName,
-                    LastName = p_customer.LastName,
-                    StreetAddress = p_customer.StreetAddress,
-                    Email = p_customer.Email
-                }
-            );
+            _context.Customers.Add(p_customer);
 
             //Save changes to DB
             _context.SaveChanges();
@@ -58,76 +36,42 @@ namespace StoreDL
 
         
 
-        public StoreModels.LineItem ReplenishLineById(StoreModels.LineItem p_lin)
+        public LineItem ReplenishLine(LineItem p_lin)
         {
-            StoreModels.LineItem linUpdated = new StoreModels.LineItem()
-                {
-                OrderId = p_lin.OrderId,
-                Inventory = p_lin.Inventory,
-                };
+            _context.LineItems.Update(p_lin);
 
-            _context.LineItems.Update(linUpdated);
             _context.SaveChanges();
+            
             return p_lin;
         }
  
-        public StoreModels.LineItem GetItemById(int p_id)
+        public LineItem GetItemById(int p_id)
         {
-            Model.LineItem linFound = _context.LineItems.AsNoTracking().FirstOrDefault(lin => lin.OrderId == p_id);
-            
-            return new StoreModels.LineItem()
-            {
-                OrderId = linFound.OrderId,
-                Inventory = (int)linFound.Inventory              
-            };
+            return _context.LineItems
+            .AsNoTracking() //Stop tracking entity once found
+            .FirstOrDefault(lin => lin.OrderId == p_id);
             
         }
        
 
 
-        public List<StoreModels.LineItem> GetAllLineItemInventory(StoreModels.Product p_prod)
+        public List<LineItem> GetAllLineItemInventory(Product p_prod)
         {
-            return _context.LineItems
-                .Where(lin => lin.OrderId == p_prod.ProductId) //We find the LineItems that have matching prodId
-                .Select(lin => new Model.LineItem(){ //Convert it into Model.Review
-                  OrderId = lin.OrderId,
-                  Inventory = lin.Inventory
-                })
-                .ToList(); //Convert it into List
+            return _context.LineItems.ToList(); //Convert it into List
         }
 
 
 
-        public List<StoreModels.Customer> GetAllCustomer()
+        public List<Customer> GetAllCustomer(Customer p_cust)
         {
-            return _context.Customers.Select(cust => 
-                new Model.Customer()
-                {
-                    CustomerId = cust.CustomerId,
-                    FirstName = cust.FirstName,
-                    LastName = cust.LastName,
-                    StreetAddress = cust.StreetAddress,
-                    Email = cust.Email
-                    
-                }
-            ).ToList();
+            return _context.Customers.ToList();
         }
 
         public List<StoreModels.Product> GetAllProduct()
         {
             
             //1. Method Syntax - LINQ
-            return _context.Products.Select(prod => 
-                new Model.Product()
-                {
-                    ProductId = prod.ProductId,
-                    ItemName = prod.ItemName,
-                    Category = prod.Category,
-                    Price = (decimal)prod.Price,
-                    Description = prod.Description
-                    
-                }
-            ).ToList();
+            return _context.Products.ToList();
 
             //2. Query Syntax
             // var result = (from prod in _context.Products
@@ -148,19 +92,24 @@ namespace StoreDL
             // return listOfProd;
         }
 
-        public List<StoreModels.StoreFront> GetAllStore()
+        public List<StoreFront> GetAllStore()
         {
-            return _context.StoreFronts.Select(store => 
-                new Model.StoreFront()
-                {
-                    StoreId = store.StoreId,
-                    StoreName = store.StoreName,
-                    StreetAddress = store.StreetAddress,
-                    City = store.City,
-                    State = store.State
-                    
-                }
-            ).ToList();
+            return _context.StoreFronts.ToList();
+        }
+
+        public StoreFront AddStore(StoreFront p_store)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public List<Customer> GetAllCustomer()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public PurchaseOrder AddPurchase(PurchaseOrder p_purchase)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace StoreBL
         {
             p_lin.Inventory += p_howMuchAdded;
 
-            return _repo.ReplenishLineById(p_lin);
+            return _repo.ReplenishLine(p_lin);
         }
        
     }

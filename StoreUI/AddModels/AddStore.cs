@@ -18,7 +18,7 @@ namespace StoreUI
         {
             Console.WriteLine("Adding a new Store");
             Console.WriteLine("Name - " + _store.StoreName);
-            Console.WriteLine("State - "+ _store.StreetAddress);
+            Console.WriteLine("State - "+ _store.Address);
             Console.WriteLine("City - "+ _store.City);
             Console.WriteLine("State - "+ _store.State);
             Console.WriteLine("[1] - Input value for Name");

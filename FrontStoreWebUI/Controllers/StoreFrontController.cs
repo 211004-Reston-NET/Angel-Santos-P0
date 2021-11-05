@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StoreBL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,18 @@ namespace FrontStoreWebUI.Controllers
 {
     public class StoreFrontController : Controller
     {
+        //Field gets data from Business Layer
+        private IStoreBL _storeBL;
+        public StoreFrontController(IStoreBL p_storeBL){
+            _storeBL = p_storeBL;
+        }
+        
         // GET: StoreFrontController
-        public ActionResult Index()
-        {
-            return View();
+        public ActionResult Index(){
+            return View(_storeBL.GetAllStores()
+                .Select(store => new Models.StoreVM(store))
+                .ToList()
+            );
         }
 
         // GET: StoreFrontController/Details/5

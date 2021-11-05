@@ -125,7 +125,7 @@ namespace StoreDL
             {
                 entity.HasKey(e => e.StoreId)
                     .HasName("PK__StoreFro__A2F2A30CAD3172F2");
-
+                //Changed Store_Front to StoreFront
                 entity.ToTable("Store_Front");
 
                 entity.Property(e => e.StoreId).HasColumnName("store_id");
@@ -145,7 +145,7 @@ namespace StoreDL
                     .IsUnicode(false)
                     .HasColumnName("store_name");
 
-                entity.Property(e => e.StreetAddress)
+                entity.Property(e => e.Address)
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("street_address");

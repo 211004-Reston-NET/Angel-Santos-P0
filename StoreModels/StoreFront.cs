@@ -6,7 +6,7 @@ namespace StoreModels
     public class StoreFront
     {   
         private string _storeName;
-        private string _streetAddress;
+        private string _address;
         private string _city;
         private string _state;
         public int StoreId { get; set; }
@@ -22,9 +22,9 @@ namespace StoreModels
                 _storeName = value;
             }
         }
-        public string StreetAddress
+        public string Address
         {
-            get { return _streetAddress; }
+            get { return _address; }
             set 
             {
                 if (string.IsNullOrEmpty(value))
@@ -34,7 +34,7 @@ namespace StoreModels
                         "   Street Address cannot be left empty.     "
                     );
                 }
-                _streetAddress = value;    
+                _address = value;    
             } 
         }
         public string City
@@ -64,7 +64,7 @@ namespace StoreModels
 
         public override string ToString()
         {
-            return $"Name: {StoreName}\nStreet Address: {StreetAddress}\nCity: {City}\nState: {State}";
+            return $"Name: {StoreName}\nStreet Address: {Address}\nCity: {City}\nState: {State}";
         }
 
     }

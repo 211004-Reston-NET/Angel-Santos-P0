@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StoreBL;
 using StoreDL;
 
 namespace FrontStoreWebUI
@@ -21,7 +22,10 @@ namespace FrontStoreWebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DBp0Context>(options => options.UseSqlServer(Configuration.GetConnectionString("ReferenceToDB")));
-            services.AddControllersWithViews();
+            services.AddScoped<IStoreBL, StoreFrontBL>();
+            services.AddScoped<IRepository, RepositoryCloud>();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

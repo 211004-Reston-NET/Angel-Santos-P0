@@ -57,7 +57,7 @@ namespace StoreBL
         //AKA Add Customer 
         public Customer CustomerSignUp(Customer p_customer)
             {
-            return _repo.CustomerSignUp(p_customer);
+            return _repo.AddCustomer(p_customer);
             }
         
         

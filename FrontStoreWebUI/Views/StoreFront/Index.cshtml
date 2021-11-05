@@ -3,3 +3,28 @@
 *@
 @{
 }
+
+@model IEnumerable<FrontStoreWebUI.Models.StoreVM>
+
+<h1> List of Stores </h1>
+
+<table>
+    <tr>
+        <th> Store Name</th>
+        <th> Street Address </th>
+        <th> City </th>
+        <th> State </th>
+    </tr>
+    <tr>
+        @foreach (StoreVM item in Model)
+        {
+
+          <td>@Html.DisplayFor(modelItem => item.StoreName)</td>
+          <td>@Html.DisplayFor(modelItem => item.Address)</td>
+          <td>@Html.DisplayFor(modelItem => item.City)</td>
+          <td>@Html.DisplayFor(modelItem => item.State)</td>
+
+        }
+
+    </tr>
+</table>
